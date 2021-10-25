@@ -1,0 +1,22 @@
+{% extends 'home.html' %}
+
+{% block content %}
+<br><br><br>
+        <h2>Welcome {{ user }} to biology test quizz !</h2>
+        <p style="font: small-caps bold 24px/1 sans-serif; color:grey;">Total score: {{ profile_user.total_score }}<br>
+        Component score: {{ profile_user.component_score }}<br>
+        Microscopy score: {{ profile_user.microscopy_score }}<br>
+        Level: {{ profile_user.level }}</p>
+
+
+    <div id="mySidenav" class="sidenav">
+
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>*
+    <a href="/logout">Log out</a>
+    <a href="/quizz/microscopy">Microscopy Quizz</a>
+    <a href="/quizz/component">Component Quizz</a>
+    <a href="/quizz/classic">Classic Quizz</a>
+    <a href="/explorepages">Explore Pages</a>
+
+    </div>
+{% endblock %}

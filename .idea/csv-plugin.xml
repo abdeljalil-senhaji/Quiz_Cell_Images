@@ -10,6 +10,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/cellimageQuizApp/Data_app/table_images.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="&#9;" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/cellimageQuizApp/Data_app/table_questions.csv">
           <value>
             <Attribute>

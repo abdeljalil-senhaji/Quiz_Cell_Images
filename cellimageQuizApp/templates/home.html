@@ -1,0 +1,135 @@
+{% load static %}
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'mycss.css' %}">
+    <title>Biology Quizz</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+<!--    <link href="/docs/4.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">-->
+    <link href="{% static '/bootstrap-4.0.0-dist/css/bootstrap.min.css' %} rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <script>
+      /* Open the sidenav */
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "100%";
+      }
+
+      /* Close/hide the sidenav */
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+      }
+    </script>
+  </head>
+
+  <body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <a class="navbar-brand" href="/">
+        <img src="{% static '/images/CjFE.gif' %}" width="60" height="60" class="d-inline-block align-top" alt="">
+    <a class="navbar-brand" href="#"></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" style="cursor:pointer" onclick="openNav()">&#9776;Menu</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" style="cursor:pointer" data-toggle="modal" data-target="#exampleModalLong">More informations</a>
+          <!-- START Modal -->
+        <!-- Modal -->
+              <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLongTitle">More informations about biology quizz</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      Click on Menu to start.<br><br>
+                      You have three categories of quizz:<br>
+                      - component quizz,<br>
+                      - microscopy quizz,<br>
+                      - classic quizz (both of them).<br>
+                      You can win and loss points according to type of category.<br><br>
+                      You have three levels:<br><br>
+                      - Beginner,<br>
+                      - Medium (>=50 points) and,<br>
+                      - Advanced (>=100 points).<br>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Done !</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          <!-- END Modal -->
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/admin">Admin interface</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+    <center>
+    {% block content %} <!-- héritage: en fonction qu'on soit connecté ou pas, affichage différent mais même squelette -->
+    {% endblock %}
+    </center>
+
+
+<!-- Footer -->
+<footer class="fixed-bottom page-footer font-small mdb-color teal bg-dark pt-4"">
+
+  <!-- Footer Elements -->
+  <div class="container">
+    <!--Grid row-->
+    <div class="row" >
+
+    {% for img in images %}
+      <!--Grid column-->
+      <!--<div class="col-lg-2 col-md-12 mb-4">-->
+      <div class="col-md-1 mb-4">
+        <!--Image-->
+        <div class="view overlay z-depth-1-half">
+          <img src="/static/images/{{ img.image_name }}.jpg" style="outline: 1px solid white; outline-offset: -6px;" width="70" height="70" alt="{{ img.image_name }}">
+            <a href="/">
+            <div class="mask rgba-white-light"></div>
+          </a>
+        </div>
+
+      </div>
+      <!--Grid column-->
+    {% endfor %}
+
+    </div>
+    <!--Grid row-->
+  </div>
+  <!-- Footer Elements -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3" style="font-size:12px">
+    <img src="{% static '/images/logo.jpg' %}" href="http://www.cellimagelibrary.org/" width="70" height="30" class="d-inline-block align-top" alt="">
+    <br>Cell Image Library:
+    <a href="http://cellimagelibrary.org"> cellimagelibrary.org</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+</body>
+</html>
