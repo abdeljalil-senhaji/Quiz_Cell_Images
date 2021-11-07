@@ -1,0 +1,148 @@
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'mycss.css' %}">
+    <title>Quizz</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+<!--    <link href="/docs/4.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">-->
+    <link href="{% static '/bootstrap-4.0.0-dist/css/bootstrap.min.css' %} rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+
+
+<a class="navbar-brand" href="/">
+    {% if category_currently == "microscopy" %}
+    <img src="{% static 'images/microscopyLogo.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
+    {% endif %}
+    {% if category_currently == "component" %}
+    <img src="{% static 'images/bioCellLogo.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
+    {% endif %}
+    <a class="navbar-brand" href="#"></a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" style="cursor:pointer" data-toggle="modal" data-target="#exampleModalLong">About Scores</a>
+                <!-- START Modal rq: l'id doit être égal à data-target-->
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">More informations about biology quizz scores</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Component quizz: win 3 points or loose 3 points.<br>
+                                Microscopy quizz: win 1 point or loose 1 point.<br>
+                                <br><br>
+                                You have three levels:<br>
+                                - Beginner,<br>
+                                - Medium (>20 points) and,<br>
+                                - Advanced (>60 points).<br>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Done !</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Modal -->
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/exploreimages"> Explore images <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Other Quizz
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    {% for cat in otherCategories %}
+                    <a class="dropdown-item" href="/quizz/{{cat}}">{{cat}}</a>
+                    {% endfor %}
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+    {% block content %} <!-- héritage: en fonction qu'on est train de répondre ou de lire la correction, affichage différent mais même squelette -->
+    {% endblock %}
+
+
+    <!-- Footer -->
+    <footer class="page-footer  pt-4 fixed-bottom bg-dark" style="color:white;">
+
+        <!-- Footer Links -->
+        <div class="container-fluid text-center text-md-left">
+
+            <!-- Grid row -->
+            <div class="row">
+
+                <!-- Grid column -->
+                <div class="col-md-6 mt-md-0 mt-3">
+
+                    <!-- Content -->
+                    <h5 class="text-uppercase">{{user}}, you are playing! you are {{profile_user.level}} level.</h5>
+                    <p>Currently, it's a question about {{category_currently}}.</p>
+
+                </div>
+                <!-- Grid column -->
+
+                <hr class="clearfix w-100 d-md-none pb-3">
+
+                <!-- Grid column -->
+                <div class="col-md-3 mb-md-0 mb-3">
+
+                    <!-- Links -->
+                    <h5 class="text-uppercase">TOTAL SCORE</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            {{profile_user.total_score}}
+                        </li>
+
+                    </ul>
+
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-3 mb-md-0 mb-3">
+
+                    <!-- Links -->
+                    <h5 class="text-uppercase">{{category_currently}} SCORE</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            {% if category_currently == "microscopy" %}
+                            {{profile_user.microscopy_score}}
+                            {% endif %}
+                            {% if category_currently == "component" %}
+                            {{profile_user.component_score}}
+                            {% endif %}
+                        </li>
+
+                    </ul>
+
+                </div>
+                <!-- Grid column -->
+
+            </div>
+            <!-- Grid row -->
+
+        </div>
+        <!-- Footer Links -->
+
+    </footer>
+    <!-- Footer -->

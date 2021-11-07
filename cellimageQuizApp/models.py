@@ -13,7 +13,6 @@ class Image(models.Model):
     doi = models.CharField(max_length=255)
     organism = models.CharField(max_length=255)
 
-
 class Question(models.Model):
     question = models.CharField(max_length=255)
     category = models.CharField(max_length=255)
@@ -23,11 +22,13 @@ class Question(models.Model):
     n_image = models.IntegerField()
     image = models.ForeignKey(Image, on_delete=models.CASCADE, null=True)
 
-
 class Answer(models.Model):
     question_id = models.IntegerField()
     answer = models.CharField(max_length=255)
     definition = models.TextField()
+
+    def __str__(self):
+        return f'{self.answer}'
 
 
 class Profile(models.Model):

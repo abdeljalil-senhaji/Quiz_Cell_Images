@@ -1,0 +1,65 @@
+{% extends 'customizeQuizz.html' %}
+{% load static %}
+
+
+{% block content %}
+
+
+    <main class="container"><br>
+
+        <div class="card-deck">
+         {% for img in images_currently %}
+            <div class="card" style="outline: 3px solid #4a9c98; outline-offset: 6px;">
+                <img src="/static/images/{{ img.image_name }}.jpg" class="card-img-top" alt="" width="250" height="330"/>
+             </div>
+         {% endfor %}
+        </div>
+        <br>
+        <div class="question" style="font-weight: bold;">
+            <center>
+                {% for q in questions %}
+                {{ q.question }}
+                {% endfor %}
+            </center>
+        </div>
+
+        <div class="reponses">
+
+            {% if user_answer %}
+                <h2 style="color: green;">Good response!.</h2>
+                <br>
+                 {% for img in images_currently %}
+                        <a href="/exploreimages/?id={{ img.id }}">More informations about image</a><br>
+                 {% endfor %}
+                <?php if(a == b) { ?>
+                    <script>
+                        alert('Good response!');
+                    </script>
+                <?php } ?>
+            {% endif %}
+
+            {% if not user_answer %}
+                {% for q in questions %}
+                <h2 style="color: red;">Bad response!. True answer: {{ true_answer }}.</h2>
+                {% endfor %}
+                <br>
+                 {% for img in images_currently %}
+                        <a href="/exploreimages/?id={{ img.id }}">More informations about image</a><br>
+                 {% endfor %}
+                <?php if(a == b) { ?>
+                    <script>
+                        alert('Bad response!');
+                    </script>
+                <?php } ?>
+            {% endif %}<br><br><br>
+
+        </div>
+
+        <!-- Button to go to next question -->
+        <form method="get" action="/quizz/{{category_currently}}">
+            <button type="submit">Next Question</button>
+        </form>
+
+    </main>
+
+{% endblock %}
