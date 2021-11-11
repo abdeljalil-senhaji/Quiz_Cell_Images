@@ -1,19 +1,21 @@
 {% load static %}
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="description" content="Dento - Dentist &amp; Medical HTML Template">
+  <meta name="description" content="Biological Cell image Quiz ">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Title -->
-  <title>Dento - Dentist &amp; Medical HTML Template</title>
+  <title>Biological Cell Image Quiz</title>
 
   <!-- Favicon -->
   <link rel="icon" href="{% static 'cellimageQuizApp/img/core-img/logo1.png' %}">
 
   <!-- Core Stylesheet -->
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link rel="stylesheet" href="{% static 'cellimageQuizApp/css/style.css' %}">
 
 </head>
@@ -41,10 +43,10 @@
           <!-- Top Header Social Info -->
           <div class="col-6 col-md-3 col-lg-4">
             <div class="top-header-social-info text-right">
-              <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook"></i></a>
+              <a href="https://www.facebook.com/rachiksenhaji" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook"></i></a>
               <a href="#" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fa fa-twitter"></i></a>
-              <a href="#" data-toggle="tooltip" data-placement="bottom" title="Google Plus"><i class="fa fa-google-plus"></i></a>
-              <a href="#" data-toggle="tooltip" data-placement="bottom" title="Linkedin"><i class="fa fa-linkedin"></i></a>
+              <a href="https://mail.google.com/mail/u/0/#inbox" data-toggle="tooltip" data-placement="bottom" title="Google Plus"><i class="fa fa-google-plus"></i></a>
+              <a href="https://www.linkedin.com/in/abdeljalil-senhaji-rachik-173509181/" data-toggle="tooltip" data-placement="bottom" title="Linkedin"><i class="fa fa-linkedin"></i></a>
             </div>
           </div>
         </div>
@@ -60,7 +62,7 @@
           <nav class="classy-navbar justify-content-between" id="dentoNav">
 
             <!-- Logo -->
-            <a class="nav-brand" href="home.html"><img src="{% static 'cellimageQuizApp/img/core-img/image.png' %}" alt=""></a>
+            <a class="nav-brand" href="/"><img src="{% static 'cellimageQuizApp/img/core-img/image.png' %}" alt=""></a>
 
             <!-- Navbar Toggler -->
             <div class="classy-navbar-toggler">
@@ -78,32 +80,18 @@
               <!-- Nav Start -->
               <div class="classynav">
                 <ul id="nav">
-                  <li><a href="index.html">Home</a></li>
-                  <li><a href="#">QUIZ</a>
+                  <li><a href="/">Home</a></li>
+                  <li><a href="#">QUIZ CATEGORY</a>
                     <ul class="dropdown">
-                      <li><a href="index.html">- Home</a></li>
-                      <li><a href="about.html">- Help</a></li>
-                      <li><a href="contact.html">- Contact</a></li>
-                      <li><a href="#">- Dropdown</a>
-                        <ul class="dropdown">
-                          <li><a href="#">- Dropdown Item</a></li>
-                          <li><a href="#">- Dropdown Item</a>
-                            <ul class="dropdown">
-                              <li><a href="#">- Even Dropdown</a></li>
-                              <li><a href="#">- Even Dropdown</a></li>
-                              <li><a href="#">- Even Dropdown</a></li>
-                              <li><a href="#">- Even Dropdown</a></li>
-                            </ul>
-                          </li>
-                          <li><a href="#">- Dropdown Item</a></li>
-                          <li><a href="#">- Dropdown Item</a></li>
-                        </ul>
-                      </li>
+                      <li><a href="quizz/microscopy/"> * Microscopy image</a></li>
+                      <li><a href="quizz/component"> * Component cell types</a></li>
                     </ul>
                   </li>
-                  <li><a href="about.html">Explore Page</a></li>
-                  <li><a href="service.html">Information Quiz</a></li>
-                  <li><a href="./contact.html">Contact</a></li>
+                  <li><a href="/exploreimages">Explore Page</a></li>
+                  <li><a href="/model_information">Information Quiz</a></li>
+                  <li><a href="/login">Log In</a></li>
+                  <li><a href="/sign_up">Sign UP</a></li>
+                  <li><a href="/logout">Log Out</a></li>
                 </ul>
               </div>
               <!-- Nav End -->
@@ -115,48 +103,15 @@
   </header>
   <!-- ***** Header Area End ***** -->
 
-  <!-- ***** Welcome Area Start ***** -->
-  <section class="welcome-area">
-    <!-- Welcome Slides -->
-    <div class="welcome-slides owl-carousel">
-      <!-- Single Welcome Slide -->
-      <div class="welcome-welcome-slide bg-img bg-gradient-overlay jarallax" style="background-image: url({% static 'images/240.jpg' %});">
-        <div class="container h-100">
-          <div class="row h-100 align-items-center">
-            <div class="col-12">
-              <!-- Welcome Text -->
-              <div class="welcome-text text-center">
-                <h2 data-animation="fadeInUp" data-delay="100ms">Welcome to the world of microscopic images of cells and their organelles</h2>
-                <p data-animation="fadeInUp" data-delay="300ms">You want to develop your knowledge in biology. it's time to start a quiz.</p>
-                <div class="welcome-btn-group">
-                  <a href="#" class="btn dento-btn mx-2" data-animation="fadeInUp" data-delay="500ms">Start The Quiz</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <!-- Single Welcome Slide -->
-      <div class="welcome-welcome-slide bg-img bg-gradient-overlay jarallax" style="background-image: url({% static 'images/11996.jpg' %});">
-        <div class="container h-100">
-          <div class="row h-100 align-items-center">
-            <div class="col-12">
-              <!-- Welcome Text -->
-              <div class="welcome-text text-center">
-                <h2 data-animation="fadeInDown" data-delay="100ms">Welcome to the world of microscopic images </h2>
-                <p data-animation="fadeInDown" data-delay="300ms">You want to develop your knowledge in biology. it's time to start a quiz.</p>
-                <div class="welcome-btn-group">
-                  <a href="#" class="btn dento-btn mx-2" data-animation="fadeInDown" data-delay="500ms">Start The Quiz</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- ***** Welcome Area End ***** -->
+
+  <!-- bloooooooock -->
+    <center>
+    {% block content %}
+
+    {% endblock %}
+    </center>
+
 
   <!-- ****** About Us Area Start ******* -->
   <section class="dento-about-us-area section-padding-100-0">
@@ -215,6 +170,7 @@
     <div class="dento-border clearfix"></div>
   </div>
 
+
   <!-- Cool Facts Area Start -->
   <section class="dento-cta-area">
     <div class="container">
@@ -259,324 +215,47 @@
   </section>
   <!-- Cool Facts Area End -->
 
-  <!-- Dento Service Area Start -->
-  <section class="dento-service-area section-padding-100-0 bg-img bg-gradient-overlay jarallax clearfix" style="background-image: url('{% static 'cellimageQuizApp/img/bg-img/13.jpg' %}');">
-    <div class="container">
-      <div class="row align-items-center">
-        <!-- Service Content -->
-        <div class="col-12 col-lg-6">
-          <div class="service-content mb-30">
-            <!-- Section Heading -->
-            <div class="section-heading white">
-              <h2>Our Services</h2>
-              <div class="line"></div>
-            </div>
 
-            <div class="row">
-              <!-- Single Service -->
-              <div class="col-6 col-md-4">
-                <div class="single-service mb-70">
-                  <img src="{% static 'cellimageQuizApp/img/core-img/s1.png' %}" alt="">
-                  <h6>Teeth Whitening</h6>
-                </div>
-              </div>
 
-              <!-- Single Service -->
-              <div class="col-6 col-md-4">
-                <div class="single-service mb-70">
-                  <img src="{% static 'cellimageQuizApp/img/core-img/s2.png' %}" alt="">
-                  <h6>Missing Teeth</h6>
-                </div>
-              </div>
-
-              <!-- Single Service -->
-              <div class="col-6 col-md-4">
-                <div class="single-service mb-70">
-                  <img src="{% static 'cellimageQuizApp/img/core-img/s3.png' %}" alt="">
-                  <h6>Teeth Whitening</h6>
-                </div>
-              </div>
-
-              <!-- Single Service -->
-              <div class="col-6 col-md-4">
-                <div class="single-service mb-70">
-                  <img src="{% static 'cellimageQuizApp/img/core-img/s4.png' %}" alt="">
-                  <h6>Cosmetic Dentistry</h6>
-                </div>
-              </div>
-
-              <!-- Single Service -->
-              <div class="col-6 col-md-4">
-                <div class="single-service mb-70">
-                  <img src="{% static 'cellimageQuizApp/img/core-img/s5.png' %}" alt="">
-                  <h6>Examination</h6>
-                </div>
-              </div>
-
-              <!-- Single Service -->
-              <div class="col-6 col-md-4">
-                <div class="single-service mb-70">
-                  <img src="./img/core-img/s1.png" alt="">
-                  <h6>Teeth Pain</h6>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Video Area -->
-        <div class="col-12 col-lg-6">
-          <div class="dento-video-area mb-100">
-            <img src="./img/bg-img/14.jpg" alt="">
-            <!-- Play Button -->
-            <a href="#" class="video-play-button"><i class="fa fa-play" aria-hidden="true"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Dento Service Area End -->
-
-  <!-- Dento Pricing Table Area Start -->
-  <section class="dento-pricing-table-area section-padding-100">
-    <div class="container">
-      <div class="row">
-        <!-- Section Heading -->
-        <div class="col-12">
-          <div class="section-heading text-center">
-            <h2>Pricing</h2>
-            <div class="line"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-12">
-          <div class="dento-price-table table-responsive">
-            <table class="table table-borderless mb-0">
-              <thead>
-                <tr>
-                  <th scope="col">Service Names</th>
-                  <th scope="col">Stage</th>
-                  <th scope="col">Price</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">Teeth Whitening Service at home</th>
-                  <td>1 times</td>
-                  <td>$115.00</td>
-                </tr>
-                <tr>
-                  <th scope="row">Teeth Whitening Service at Dental Clinic</th>
-                  <td>1 times</td>
-                  <td>$100.00</td>
-                </tr>
-                <tr>
-                  <th scope="row">Ceramic crowns and fillings Dental porcelain</th>
-                  <td>1 times</td>
-                  <td>$99.00</td>
-                </tr>
-                <tr>
-                  <th scope="row">Remove crowns, bridges Service</th>
-                  <td>1 tooth</td>
-                  <td>$50.00</td>
-                </tr>
-                <tr>
-                  <th scope="row">Covering the recession of the gums</th>
-                  <td>1 times</td>
-                  <td>$400.00</td>
-                </tr>
-                <tr>
-                  <th scope="row">Consultation, impressions and preparation of models</th>
-                  <td>1 times</td>
-                  <td>$35.00</td>
-                </tr>
-                <tr>
-                  <th scope="row">Removal of an old inlay, old crown</th>
-                  <td>1 times</td>
-                  <td>$99.00</td>
-                </tr>
-                <tr>
-                  <th scope="row">Overlay teeth whitening ( 2 arches)</th>
-                  <td>1 times</td>
-                  <td>$170.00</td>
-                </tr>
-                <tr>
-                  <th scope="row">Standard porcelain and zirconium crown on implant</th>
-                  <td>1 tooth</td>
-                  <td>$499.00</td>
-                </tr>
-                <tr>
-                  <th scope="row">Implantation of an implant (price depends on system used)</th>
-                  <td>1 tooth</td>
-                  <td>$600.00</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <div class="col-12">
-          <div class="more-btn text-center mt-50">
-            <a href="#" class="btn dento-btn">Read More <i class="fa fa-angle-double-right"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Dento Pricing Table Area End -->
-
-  <!-- Book An Oppointment Area Start -->
-  <section class="book-an-oppointment-area section-padding-100 bg-img bg-gradient-overlay jarallax clearfix" style="background-image: url({% static 'cellimageQuizApp/img/bg-img/12.jpg' %});">
-    <div class="container">
-      <div class="row">
-        <!-- Section Heading -->
-        <div class="col-12">
-          <div class="section-heading text-center white">
-            <h2>Book An Apointment</h2>
-            <div class="line"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-12">
-          <!-- Appointment Form -->
-          <div class="appointment-form">
-            <form action="#" method="post">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group mb-30">
-                    <input type="text" name="your-name" class="form-control" placeholder="Your Name" required>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group mb-30">
-                    <input type="text" name="your-phone" class="form-control" placeholder="Your Phone" required>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group mb-30">
-                    <input type="email" name="your-email" class="form-control" placeholder="Your Email" required>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group mb-30">
-                    <input type="text" name="your-address" class="form-control" placeholder="Your Address">
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group mb-30">
-                    <select name="your-scheldule" class="form-control">
-                      <option value="Choose Your Scheldule">Choose Your Scheldule</option>
-                      <option value="9 AM to 10 AM">9 AM to 10 AM</option>
-                      <option value="11 AM to 12 PM">11 AM to 12 PM</option>
-                      <option value="2 PM to 4 PM">2 PM to 4 PM</option>
-                      <option value="8 PM to 10 PM">8 PM to 10 PM</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group mb-30">
-                    <select name="your-time" class="form-control">
-                      <option value="Choose Your Time">Choose Your Scheldule</option>
-                      <option value="9 AM to 10 AM">9 AM to 10 AM</option>
-                      <option value="11 AM to 12 PM">11 AM to 12 PM</option>
-                      <option value="2 PM to 4 PM">2 PM to 4 PM</option>
-                      <option value="8 PM to 10 PM">8 PM to 10 PM</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <div class="form-group mb-30">
-                    <textarea name="your-message" class="form-control" placeholder="Your Message"></textarea>
-                  </div>
-                </div>
-                <div class="col-12 text-center">
-                  <button type="submit" class="btn dento-btn">Booking Now</button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Book An Oppointment Area End -->
-
-  <!-- ***** Dento Dentist Area Start ***** -->
+    <!-- ***** QUIZ Area Start ***** -->
   <section class="dentist-area section-padding-100-0">
     <div class="container">
       <div class="row">
         <!-- Section Heading -->
         <div class="col-12">
           <div class="section-heading text-center">
-            <h2>Our Dentist</h2>
+            <h2>QUIZ Of Cell and component images</h2>
             <div class="line"></div>
           </div>
         </div>
       </div>
 
-      <div class="row">
-        <!-- Single Dentist Area -->
-        <div class="col-12 col-sm-6 col-md-4">
+      <div class="row d-flex justify-content-center">
+        <!-- Single QUIZ Area -->
+        <div class="col-12 col-sm-6 col-md-6">
           <div class="single-dentist-area mb-100">
-            <img src="{% static 'cellimageQuizApp/img/bg-img/9.png' %}" alt="">
-            <!-- Dentist Content -->
+            <img src="{% static 'images/39469.jpg' %}" alt="">
+            <!-- QUIZ Content -->
             <div class="dentist-content">
-              <!-- Social Info -->
-              <div class="dentist-social-info">
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-google-plus"></i></a>
-              </div>
-              <!-- Dentist Info -->
+              <!-- QUIZ Info -->
               <div class="dentist-info bg-gradient-overlay">
-                <h5>Michael Barley</h5>
-                <p>Implant Expert</p>
+                <h5>Microscopy image</h5>
+                <p>Know the characteristics of each microscope</p>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Single Dentist Area -->
-        <div class="col-12 col-sm-6 col-md-4">
+        <!-- Single QUIZ Area -->
+        <div class="col-12 col-sm-6 col-md-6">
           <div class="single-dentist-area mb-100">
-            <img src="{% static 'cellimageQuizApp/img/bg-img/10.png' %}" alt="">
-            <!-- Dentist Content -->
+            <img src="{% static 'images/39346.jpg'%}" alt="">
+            <!-- Quiz Content -->
             <div class="dentist-content">
-              <!-- Social Info -->
-              <div class="dentist-social-info">
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-google-plus"></i></a>
-              </div>
-              <!-- Dentist Info -->
+              <!-- Quiz Info -->
               <div class="dentist-info bg-gradient-overlay">
-                <h5>Michael Barley</h5>
-                <p>Implant Expert</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Single Dentist Area -->
-        <div class="col-12 col-sm-6 col-md-4">
-          <div class="single-dentist-area mb-100">
-            <img src="{% static 'cellimageQuizApp/img/bg-img/11.png'%}" alt="">
-            <!-- Dentist Content -->
-            <div class="dentist-content">
-              <!-- Social Info -->
-              <div class="dentist-social-info">
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-google-plus"></i></a>
-              </div>
-              <!-- Dentist Info -->
-              <div class="dentist-info bg-gradient-overlay">
-                <h5>Michael Barley</h5>
-                <p>Implant Expert</p>
+                <h5>Component cell types</h5>
+                <p>know the characteristics of each cell type</p>
               </div>
             </div>
           </div>
@@ -586,8 +265,70 @@
   </section>
   <!-- ***** Dento Dentist Area End ***** -->
 
+
+
+  <!-- Dento Service Area Start -->
+  <section class="dento-service-area section-padding-100-0 bg-img bg-gradient-overlay jarallax clearfix" style="background-image: url('{% static 'images/214.jpg' %}');">
+    <div class="container">
+      <div class="row align-items-center">
+        <!-- Service Content -->
+        <div class="col-12 col-lg-6">
+          <div class="service-content mb-30">
+            <!-- Section Heading -->
+            <div class="section-heading white">
+              <h2>Quiz Video Tutorial</h2>
+              <div class="line"></div>
+            </div>
+
+            <div class="row">
+              <!-- Single Service -->
+              <div class="col-6 col-md-4">
+                <div class="single-service mb-70">
+                  <img src="{% static 'cellimageQuizApp/img/core-img/2222.png' %}" alt="">
+                  <h6>Quiz of the microscope types and its cell components</h6>
+                </div>
+              </div>
+
+              <!-- Single Service -->
+              <div class="col-6 col-md-4">
+                <div class="single-service mb-70">
+                  <img src="{% static 'cellimageQuizApp/img/core-img/70547.png' %}" alt="">
+                  <h6>The Answer True</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video Area -->
+        <div class="col-12 col-lg-6">
+          <div class="dento-video-area mb-100">
+            <iframe width="600" height="350" src="https://www.youtube.com/embed/B_zD3NxSsD8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Dento Service Area End -->
+
+
+
+
+  <!-- add espace abdeljalil -->
+
+
+      <div class="row">
+        <!-- Section Heading -->
+        <div class="col-12">
+          <div class="section-heading text-center white">
+            <h2></h2>
+            <div></div>
+          </div>
+        </div>
+      </div>
+
   <!-- ***** Testimonials Area Start ***** -->
-  <section class="testimonials-area section-padding-100 bg-img bg-gradient-overlay jarallax clearfix" style="background-image: url({% static 'cellimageQuizApp/img/bg-img/7.jpg' %});">
+  <section class="testimonials-area section-padding-100 bg-img bg-gradient-overlay jarallax clearfix" style="background-image: url({% static 'images/master.jpg' %});">
     <div class="container">
       <div class="row">
         <div class="col-12">
@@ -597,14 +338,14 @@
             <div class="single-testimonial-slide d-flex align-items-center">
               <!-- Thumbnail -->
               <div class="testimonial-thumb">
-                <img src="{% static 'cellimageQuizApp/img/bg-img/8.jpg' %}" alt="">
+                <img src="{% static 'images/abdeljalil.png' %}" alt="">
               </div>
               <!-- Content -->
               <div class="testimonial-content">
-                <h5>“I'd been avoiding the dentist for years due to bad experiences. A reminder SMS is sent the working day beforehand. I also had a call confirming appointment. I have been a patient ever since. My dentist is very reassuring and
-                  very helpful. Excellent treatment and advice.”</h5>
-                <h6>Arron Ramsey</h6>
-                <p>Dental Patient</p>
+                <h5>“This site was created within the framework of a project of the module "web programming - Django" in master2 DLAD (Software development and data analysis) at the university of Aix-Marseille.
+                  note: i hope this site helps people to develop their knowledge in cell biology.”</h5>
+                <h6>ABDELJALIL SENHAJI RACHIK</h6>
+                <p>Bioinformatics Student</p>
               </div>
             </div>
 
@@ -612,29 +353,14 @@
             <div class="single-testimonial-slide d-flex align-items-center">
               <!-- Thumbnail -->
               <div class="testimonial-thumb">
-                <img src="{% static 'cellimageQuizApp/img/bg-img/8.jpg' %}" alt="">
+                <img src="{% static 'images/abdeljalil.png' %}" alt="">
               </div>
               <!-- Content -->
               <div class="testimonial-content">
-                <h5>“I'd been avoiding the dentist for years due to bad experiences. A reminder SMS is sent the working day beforehand. I also had a call confirming appointment. I have been a patient ever since. My dentist is very reassuring and
-                  very helpful. Excellent treatment and advice.”</h5>
-                <h6>Arron Ramsey</h6>
-                <p>Dental Patient</p>
-              </div>
-            </div>
-
-            <!-- Single Testimonials Slide -->
-            <div class="single-testimonial-slide d-flex align-items-center">
-              <!-- Thumbnail -->
-              <div class="testimonial-thumb">
-                <img src="{% static 'cellimageQuizApp/img/bg-img/8.jpg' %}" alt="">
-              </div>
-              <!-- Content -->
-              <div class="testimonial-content">
-                <h5>“I'd been avoiding the dentist for years due to bad experiences. A reminder SMS is sent the working day beforehand. I also had a call confirming appointment. I have been a patient ever since. My dentist is very reassuring and
-                  very helpful. Excellent treatment and advice.”</h5>
-                <h6>Arron Ramsey</h6>
-                <p>Dental Patient</p>
+                <h5>“This site was created within the framework of a project of the module "web programming - Django" in master2 DLAD (Software development and data analysis) at the university of Aix-Marseille.
+                  note: i hope this site helps people to develop their knowledge in cell biology.”</h5>
+                <h6>ABDELJALIL SENHAJI RACHIK</h6>
+                <p>Bioinformatics Student</p>
               </div>
             </div>
           </div>
@@ -643,171 +369,98 @@
     </div>
   </section>
   <!-- ***** Testimonials Area End ***** -->
-
-  <!-- ***** Blog Area Start ***** -->
-  <section class="dento-blog-area section-padding-100-0 clearfix">
-    <div class="container">
-      <div class="row">
-        <!-- Section Heading -->
-        <div class="col-12">
-          <div class="section-heading text-center">
-            <h2>The Latest News</h2>
-            <div class="line"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <!-- Single Blog Item -->
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="single-blog-item mb-100">
-            <a href="./blog-details.html">
-              <img src="{% static 'cellimageQuizApp/img/bg-img/4.jpg' %}" alt="">
-            </a>
-            <!-- Blog Content -->
-            <div class="blog-content">
-              <a href="./blog-details.html" class="post-title">How your mouth bacteria can harm your lungs</a>
-              <p>Donec tempor, lorem et euismod eleifend, est lectus laoreet ante, sed accusan justo diam ...</p>
-              <div class="post-meta">
-                <a href="#"><i class="icon_clock_alt"></i> 28 Sep 2018</a>
-                <a href="#"><i class="icon_chat_alt"></i> 3 Comments</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Single Blog Item -->
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="single-blog-item mb-100">
-            <a href="./blog-details.html">
-              <img src="{% static 'cellimageQuizApp/img/bg-img/5.jpg' %}" alt="">
-            </a>
-            <!-- Blog Content -->
-            <div class="blog-content">
-              <a href="./blog-details.html" class="post-title">What is the best kind of toothpaste to use?</a>
-              <p>Donec tempor, lorem et euismod eleifend, est lectus laoreet ante, sed accusan justo diam ...</p>
-              <div class="post-meta">
-                <a href="#"><i class="icon_clock_alt"></i> 28 Sep 2018</a>
-                <a href="#"><i class="icon_chat_alt"></i> 3 Comments</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Single Blog Item -->
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="single-blog-item mb-100">
-            <a href="./blog-details.html">
-              <img src="{% static 'cellimageQuizApp/img/bg-img/6.jpg' %}" alt="">
-            </a>
-            <!-- Blog Content -->
-            <div class="blog-content">
-              <a href="./blog-details.html" class="post-title">Why you should avoid sipping your drinks</a>
-              <p>Donec tempor, lorem et euismod eleifend, est lectus laoreet ante, sed accusan justo diam ...</p>
-              <div class="post-meta">
-                <a href="#"><i class="icon_clock_alt"></i> 28 Sep 2018</a>
-                <a href="#"><i class="icon_chat_alt"></i> 3 Comments</a>
-              </div>
-            </div>
-          </div>
-        </div>
+  <div class="row">
+    <!-- Section Heading -->
+    <div class="col-12">
+      <div class="section-heading text-center white">
+        <h2></h2>
+        <div></div>
       </div>
     </div>
+  </div>
+  <!-- Book An Oppointment Area Start -->
+
+
+<!-- cantact mail-->
+  <section class="book-an-oppointment-area section-padding-100 bg-img bg-gradient-overlay jarallax clearfix" style="background-image: url('{% static 'images/214.jpg' %}');">
+  <div class="container">
+	<div class="row">
+      <div class="col-12">
+        <div class="section-heading text-center white">
+          <h2>CONTACT</h2>
+          <div class="line"></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-md-offset-3">
+        <div class="well well-sm">
+          <form class="form-horizontal" action="" method="post">
+          <fieldset>
+
+            <!-- Name input-->
+            <div class="col-16">
+              <label class="col-md-3 control-label" for="name">Name</label>
+              <div class="form-group mb-30">
+                <input id="name" name="name" type="text" placeholder="Your name" class="form-control">
+              </div>
+            </div>
+
+            <!-- Email input-->
+            <div class="col-16">
+              <label class="col-md-3 control-label" for="email">Your E-mail</label>
+              <div class="form-group mb-30">
+                <input id="email" name="email" type="text" placeholder="Your email" class="form-control">
+              </div>
+            </div>
+
+            <!-- Message body -->
+            <div class="col-16">
+              <label class="col-md-3 control-label" for="message">Your message</label>
+              <div class="form-group mb-30">
+                <textarea name="your-message" class="form-control" placeholder="Please enter your message here..."></textarea>
+              </div>
+            </div>
+
+            <!-- Form actions -->
+            <div class="form-group text-center">
+              <div class="col-12 text-center">
+                <button type="submit" class="btn dento-btn">Submit</button>
+              </div>
+            </div>
+          </fieldset>
+          </form>
+        </div>
+      </div>
+	</div>
+  </div>
   </section>
-  <!-- ***** Blog Area End ***** -->
+  <!-- Book An Oppointment Area End -->
+
+
 
   <!-- ***** Footer Area Start ***** -->
-  <footer class="footer-area bg-img bg-gradient-overlay" style="background-image: url({% static 'images/39954.jpg' %});">
+  <footer class=" mt-5 bg-img bg-gradient-overlay" style="background-image: url({% static 'images/39954.jpg' %});">
     <div class="container">
       <div class="row">
         <!-- Single Footer Widget -->
-        <div class="col-12 col-sm-6 col-lg-4">
+        <div class="col-12 col-sm-auto col-lg-12 text-center">
           <div class="single-footer-widget">
-            <a href="./home.html" class="d-block mb-4"><img src="{% static 'cellimageQuizApp/img/core-img/image.png' %}" alt=""></a>
-            <p>Etiam sutor risus, dapibus act elefend katen, lacinia sitamet denim. Mauris sagittis kansa interdum dignissim.</p>
+            <a href="/" class="d-block mb-4"><img src="{% static 'cellimageQuizApp/img/core-img/image.png' %}" alt=""></a>
+            <p>Welcome to CellImageQuiz : Increase your knowledge in biology.</p>
             <div class="footer-contact">
-              <p><i class="icon_phone"></i> +84. 2252. 2250. 122</p>
+              <p><i class="icon_phone"></i> +336 24 28 03 91</p>
               <p><i class="icon_mail"></i>abdeljalil.senhaji-rachik@etu.univ-amu.fr</p>
             </div>
           </div>
         </div>
-
-        <!-- Single Footer Widget -->
-        <div class="col-12 col-sm-6 col-lg">
-          <div class="single-footer-widget">
-            <!-- Widget Title -->
-            <h5 class="widget-title">Opening Hours</h5>
-
-            <!-- Opening Hours -->
-            <ul class="opening-hours">
-              <li><span>Mon-Wed</span> <span>8.00-18.00</span></li>
-              <li><span>Thu-Fri</span> <span>8.00-17.00</span></li>
-              <li><span>Sat</span> <span>9.00-17.00</span></li>
-              <li><span>Sun</span> <span>10.00-17.00</span></li>
-              <li><span>Holiday</span> <span>Closed</span></li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Single Footer Widget -->
-        <div class="col-12 col-sm-6 col-lg">
-          <div class="single-footer-widget">
-            <!-- Widget Title -->
-            <h5 class="widget-title">Quick Link</h5>
-
-            <!-- Quick Links Nav -->
-            <nav>
-              <ul class="quick-links">
-                <li><a href="#">About</a></li>
-                <li><a href="#">FAQs</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">Policy</a></li>
-                <li><a href="#">News</a></li>
-                <li><a href="#">Advisors</a></li>
-                <li><a href="#">Careers</a></li>
-                <li><a href="#">Dentist</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Legals</a></li>
-              </ul>
-            </nav>
-          </div>
-        </div>
-
-        <!-- Single Footer Widget -->
-        <div class="col-12 col-sm-6 col-lg">
-          <div class="single-footer-widget">
-            <!-- Widget Title -->
-            <h5 class="widget-title">Newsletter</h5>
-
-            <p>We will send out weekly newest article and some great offers</p>
-            <!-- Newsletter Form -->
-            <div class="footer-newsletter-form">
-              <form action="#" method="post">
-                <input type="email" name="nl-email" value="" placeholder="Email Address">
-                <button type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-              </form>
-            </div>
-
-            <!-- Social Info -->
-            <div class="footer-social-info">
-              <a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a>
-              <a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a>
-              <a href="#" data-toggle="tooltip" data-placement="top" title="Google Plus"><i class="fa fa-google-plus"></i></a>
-              <a href="#" data-toggle="tooltip" data-placement="top" title="Linkedin"><i class="fa fa-linkedin"></i></a>
-              <a href="#" data-toggle="tooltip" data-placement="top" title="Pinterest"><i class="fa fa-pinterest"></i></a>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
-
     <!-- Copywrite Area -->
     <div class="container">
       <div class="row">
         <div class="col-12">
           <div class="copywrite-content">
             <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Create By Abdeljalil | <script>document.write(new Date().getFullYear());</script>  | This images is made with <i aria-hidden="true"></i> by <a href="http://cellimagelibrary.org/home" target="_blank">Cell Image <a href="https://themeslab.org/" target="_blank"></a>Library</a>
+              Create By Abdeljalil | <script>document.write(new Date().getFullYear());</script>  | This images is made with <i aria-hidden="true"></i> by <a href="http://cellimagelibrary.org/home" target="_blank">Cell Image <a href="https://themeslab.org/" target="_blank"></a>Library</a>
             </p>
           </div>
         </div>

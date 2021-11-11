@@ -58,7 +58,7 @@ ROOT_URLCONF = 'cellimageQuiz.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'), ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -70,6 +70,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'cellimageQuiz.wsgi.application'
 
@@ -129,10 +130,15 @@ STATIC_URL = '/static/'
 #STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 #STATIC_URL = '/static/'
 
-#LOGIN_REDIRECT_URL = '/'
-#LOGOUT_REDIRECT_URL = '/'  # When we log out, it is the redirection
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
+###### email contact SETTINGS ##################
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'senhajirachikabdeljalil@gmail.com'
+EMAIL_HOST_PASSWORD = '***************'
+EMAIL_USE_TLS = False
+#EMAIL_USE_SSL = False

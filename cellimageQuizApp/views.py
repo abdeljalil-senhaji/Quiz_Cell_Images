@@ -32,11 +32,9 @@ def sign_up(request):
 def index(request):
     if request.user.is_authenticated:
         return render(request, "connected.html",
-                      {"profile_user": Profile.objects.get(user_id=request.user.id),
-                       "images": Image.objects.all().order_by('?')[10:22]})
+                      {"profile_user": Profile.objects.get(user_id=request.user.id)})
     else:
-        return render(request, "unconnected.html",
-                      {"images": Image.objects.all().order_by('?')[10:22]})
+        return render(request, "unconnected.html")
 
 
 ######## Images explore  #########
@@ -51,6 +49,12 @@ class FilteredImagesListView(SingleTableMixin, FilterView):
     model = Image
     template_name = 'exploreimages.html'
     filterset_class = ImageFilter
+
+
+############## Information quiz ###########
+
+def information(request):
+    return render(request, "information.html")
 
 
 ############ Quiz 1 ################
@@ -101,7 +105,7 @@ def playquizz(request, choiceCategory):
     # choiceCategory: le type de quizz
     # case of a classic quizz:
 
-    choiceCategorySave = ["microscopy", "component", "classic"]
+    choiceCategorySave = ["microscopy", "component"]
     # supremer l'element choisCategory
     del choiceCategorySave[choiceCategorySave.index(choiceCategory)]
     # a supprimer apres

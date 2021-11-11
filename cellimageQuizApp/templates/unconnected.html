@@ -1,15 +1,49 @@
 {% extends 'home.html' %}
 
 {% block content %}
-<br><br><br><br>
-  <h2>Welcome to biology test quizz ! <br>Log in or Sign up.
-    <br>Click on menu.</h2>
+{% load static %}
+<!-- ***** Welcome Area Start ***** -->
+  <section class="welcome-area">
+    <!-- Welcome Slides -->
+    <div class="welcome-slides owl-carousel">
+      <!-- Single Welcome Slide -->
+      <div class="welcome-welcome-slide bg-img bg-gradient-overlay jarallax" style="background-image: url({% static 'images/240.jpg' %});">
+        <div class="container h-100">
+          <div class="row h-100 align-items-center">
+            <div class="col-12">
+              <!-- Welcome Text -->
+              <div class="welcome-text text-center">
+                <h2 data-animation="fadeInUp" data-delay="100ms">Welcome to the world of microscopic images of cells and their organelles</h2>
+                <p data-animation="fadeInUp" data-delay="300ms">You want to develop your knowledge in biology. it's time to start a quiz.</p>
+                <div class="welcome-btn-group">
+                  <a href="#" class="btn dento-btn mx-2" data-animation="fadeInUp" data-delay="500ms">Start The Quiz</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <div id="mySidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>*
-    <a href="/sign_up">Sign Up</a>
-    <a href="/login">Log In</a>
-    <a href="/exploreimages">Explore Images</a>
-  </div>
+      <!-- Single Welcome Slide -->
+      <div class="welcome-welcome-slide bg-img bg-gradient-overlay jarallax" style="background-image: url({% static 'images/11996.jpg' %});">
+        <div class="container h-100">
+          <div class="row h-100 align-items-center">
+            <div class="col-12">
+              <!-- Welcome Text -->
+              <div class="welcome-text text-center">
+                <h2 data-animation="fadeInDown" data-delay="100ms">Welcome to the world of microscopic images </h2>
+                <p data-animation="fadeInDown" data-delay="300ms">You want to develop your knowledge in biology. it's time to start a quiz.</p>
+                <div class="welcome-btn-group">
+                  <a href="#" class="btn dento-btn mx-2" data-animation="fadeInDown" data-delay="500ms">Start The Quiz</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ***** Welcome Area End ***** -->
 
 {% endblock %}
+

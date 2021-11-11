@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!-- Trigger the modal with a button -->
+<!-- Modal -->
+<div class="modal-dialog modal-lg" id="myModal" role="dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <a class="nav-brand" href="/home.html"><img src="{% static 'cellimageQuizApp/img/core-img/image.png' %}"
+                                                        alt=""></a>
+        </div>
+        <div class="modal-body">
+            Welcome in Cell Image Quiz.<br><br>
+            Registration is required to start the quiz.<br><br>
+            After registration:<br><br>
+            - You have two categories of Quiz:<br><br>
+            -> The one with the images of the types of the microscope.<br><br>
+            -> and the other with the types of the cellular components<br><br>
+            A score of the point that is registered for each game.<br><br>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,22 +1,48 @@
 {% extends 'home.html' %}
 
 {% block content %}
-<br><br><br>
-        <h2>Welcome {{ user }} to biology test quizz !</h2>
-        <p style="font: small-caps bold 24px/1 sans-serif; color:grey;">Total score: {{ profile_user.total_score }}<br>
-        Component score: {{ profile_user.component_score }}<br>
-        Microscopy score: {{ profile_user.microscopy_score }}<br>
-        Level: {{ profile_user.level }}</p>
+{% load static %}
+<!-- ***** Welcome Area Start ***** -->
+  <section class="welcome-area">
+    <!-- Welcome Slides -->
+    <div class="welcome-slides owl-carousel">
+      <!-- Single Welcome Slide -->
+      <div class="welcome-welcome-slide bg-img bg-gradient-overlay jarallax" style="background-image: url({% static 'images/240.jpg' %});">
+        <div class="container h-100">
+          <div class="row h-100 align-items-center">
+            <div class="col-12">
+              <!-- Welcome Text -->
+              <div class="welcome-text text-center">
+                <h2 data-animation="fadeInUp" data-delay="100ms">Welcome {{ user }} to the world of microscopic images of cells and their organelles</h2>
+                <p data-animation="fadeInUp" data-delay="300ms">You want to develop your knowledge in biology. it's time to start a quiz.</p>
+                <div class="welcome-btn-group">
+                  <a href="#" class="btn dento-btn mx-2" data-animation="fadeInUp" data-delay="500ms">Start The Quiz</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-
-    <div id="mySidenav" class="sidenav">
-
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>*
-    <a href="/logout">Log out</a>
-    <a href="/quizz/microscopy">Microscopy Quizz</a>
-    <a href="/quizz/component">Component Quizz</a>
-    <a href="/quizz/classic">Classic Quizz</a>
-    <a href="/exploreimages">Explore Images</a>
-
+      <!-- Single Welcome Slide -->
+      <div class="welcome-welcome-slide bg-img bg-gradient-overlay jarallax" style="background-image: url({% static 'images/11996.jpg' %});">
+        <div class="container h-100">
+          <div class="row h-100 align-items-center">
+            <div class="col-12">
+              <!-- Welcome Text -->
+              <div class="welcome-text text-center">
+                <h2 data-animation="fadeInDown" data-delay="100ms">Welcome {{ user }} to the world of microscopic images </h2>
+                <p data-animation="fadeInDown" data-delay="300ms">You want to develop your knowledge in biology. it's time to start a quiz.</p>
+                <div class="welcome-btn-group">
+                  <a href="#" class="btn dento-btn mx-2" data-animation="fadeInDown" data-delay="500ms">Start The Quiz</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
+  <!-- ***** Welcome Area End ***** -->
+
 {% endblock %}

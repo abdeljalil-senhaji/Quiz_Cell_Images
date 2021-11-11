@@ -19,7 +19,7 @@ from django.contrib import admin
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import path
 from cellimageQuizApp.importdata import importData
-from cellimageQuizApp.views import index, sign_up, FilteredImagesListView, playquizz
+from cellimageQuizApp.views import index, sign_up, FilteredImagesListView, playquizz, information
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,6 +28,7 @@ urlpatterns = [
     path('sign_up/', sign_up, name="sign-up"),
     path('login/', LoginView.as_view(), name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
+    path('model_information/', information, name='information'),
     path('exploreimages/', FilteredImagesListView.as_view(), name='exploreimages'),
     path('quizz/<choiceCategory>/', playquizz, name='playquizz'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
