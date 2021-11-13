@@ -1,3 +1,5 @@
+from django.template import Context, Template
+from django.template.loader import get_template
 from .models import Image
 from django_filters import FilterSet, ModelChoiceFilter
 import django_tables2 as tables

@@ -31,10 +31,10 @@ def sign_up(request):
 
 def index(request):
     if request.user.is_authenticated:
-        return render(request, "connected.html",
+        return render(request, "registration/registered.html",
                       {"profile_user": Profile.objects.get(user_id=request.user.id)})
     else:
-        return render(request, "unconnected.html")
+        return render(request, "registration/unregistered.html")
 
 
 ######## Images explore  #########
@@ -180,7 +180,7 @@ def playquizz(request, choiceCategory):
 
             classTrueAnswer.setIDTrueAnswer(id_trueAnswer)
 
-            return render(request, "playquizz2.html",
+            return render(request, "TwoQuiz.html",
                           {"profile_user": Profile.objects.get(user_id=request.user.id),
                            "questions": Question.objects.filter(category=choiceCategory, id=questionIDcurrent),
                            "images": getImages(id_trueAnswer, choiceCategory),
@@ -203,7 +203,7 @@ def playquizz(request, choiceCategory):
         images = getImages(id_trueAnswer, choiceCategory)
         classCurrentImages.setImages(images)
 
-        return render(request, "playquizz.html",
+        return render(request, "OneQuiz.html",
                       {"profile_user": Profile.objects.get(user_id=request.user.id),
                        "questions": Question.objects.filter(category=choiceCategory, id=questionIDcurrent),
                        "images": images,

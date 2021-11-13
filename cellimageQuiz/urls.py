@@ -25,10 +25,12 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('data/', importData),
     path('', index, name='index'),
-    path('sign_up/', sign_up, name="sign-up"),
-    path('login/', LoginView.as_view(), name='login'),
-    path('logout/', LogoutView.as_view(), name='logout'),
-    path('model_information/', information, name='information'),
-    path('exploreimages/', FilteredImagesListView.as_view(), name='exploreimages'),
-    path('quizz/<choiceCategory>/', playquizz, name='playquizz'),
+    path('sign_up/', sign_up),
+    path('login/', LoginView.as_view()),
+    path('logout/', LogoutView.as_view()),
+    path('model_information/', information),
+    path('exploreimages/', FilteredImagesListView.as_view()),
+    path('quiz/<choiceCategory>/', playquizz),
+    #path('quiz/microscopy', playquizz),
+    #path('quiz/component', playquizz)
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
