@@ -22,14 +22,25 @@
             <img src="{% static 'cellimageQuizApp/img/core-img/image.png' %}" class="d-inline-block align-top" alt="">
         <a class="navbar-nav" href="#"></a>
     </nav>
-
-
+<div class="navbar">
+    <div class="container">
+        <h3 class="text-left"> &#127919 {{category_currently}} &#128300 <mark> Score Quiz</mark></h3>
+            <p>
+                {% if category_currently == "microscopy" %}
+                {{profile_user.microscopy_score}}
+                {% endif %}
+                {% if category_currently == "component" %}
+                {{profile_user.component_score}}
+                {% endif %}
+            </p>
+    </div>
+</div>
     <!--Quiz Compenent cell block-->
     <main class="container"><br>
 
         <div class="card-deck">
          {% for img in images_currently %}
-            <div class="card" style="5px double silver; outline-offset: 1px;">
+            <div class="card" style="5px double silver outline-offset: 1px;">
                 <img src="/static/images/{{ img.image_name }}.jpg" class="card-img-top" alt="" width="250" height="330"/>
              </div>
          {% endfor %}
@@ -45,57 +56,58 @@
         <div class="reponses">
 
             {% if user_answer %}
-                <h2 style="color: green;">Good response!.</h2>
-                <br>
-                 {% for img in images_currently %}
-                        <a href="/exploreimages/?id={{ img.id }}">More informations about image</a><br>
-                 {% endfor %}
-                <?php if(a == b) { ?>
                    <!-- Modal -->
-                      <!--div class="modal fade" id="modalAfterResponse" role="dialog"-->
-                        <div class="modal-dialog">:
+                        <div class="modal-dialog">
 
                           <!-- Modal content-->
                           <div class="modal-content">
-                            <div class="modal-header">
-                              <button type="button" class="close" data-dismiss="modal">&times;</button>
-                              <h4 class="modal-title">Modal Header</h4>
-                            </div>
                             <div class="modal-body">
-                              <p>Some text in the modal.</p>
+                              <p1>&#9989 WELL DONE <strong> {{ user }} ! </strong> &#128075; </p1>
+                                <h3 style="color: teal;">Good response ! </h3>
                             </div>
                             <div class="modal-footer">
-                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                {{ images_currently }}
+                                <form method="get" action="/exploreimages/?id={{ images_currently.id }}">
+                                    <button type="submit" class="btn btn-secondary">More informations</button>
+                                </form>
+                                <!-- Button to go to next question -->
+                                <form method="get" action="/quiz/{{category_currently}}">
+                                    <button type="submit" class="btn btn-primary">Next</button>
+                                </form>
+                            </div>
+                          </div>
+                        </div>
+                      <!--/div-->
+            {% endif %}
+
+            {% if not user_answer %}
+                    <!-- Modal -->
+                        <div class="modal-dialog">
+                          <!-- Modal content-->
+                          <div class="modal-content">
+                            <div class="modal-body">
+                              <p1> &#10060    Try another time. I trust you <strong> {{ user }} ! </strong> &#128170</p1>
+                                <h3 style="color: red;">Bad response ! The real answer is : {{ true_answer }}</h3>
+                            </div>
+                            <div class="modal-footer">
+                                {{ images_currently }}
+                                <form method="get" action="/exploreimages/?id={{ images_currently.id }}">
+                                    <button type="submit" class="btn btn-secondary">More informations</button>
+                                </form>
+                                <form method="get" action="/quiz/{{category_currently}}">
+                                    <button type="submit" class="btn btn-primary">Next</button>
+                                </form>
                             </div>
                           </div>
 
                         </div>
                       <!--/div-->
-                <?php } ?>
-            {% endif %}
-
-            {% if not user_answer %}
-                {% for q in questions %}
-                <h2 style="color: red;">Bad response!. True answer: {{ true_answer }}.</h2>
-                {% endfor %}
-                <br>
-                 {% for img in images_currently %}
-                        <a href="/exploreimages/?id={{ img.id }}">More informations about image</a><br>
-                 {% endfor %}
-                <?php if(a == b) { ?>
-                    <script>
-                        alert('Bad response!');
-                    </script>
-                <?php } ?>
             {% endif %}<br><br><br>
         </div>
-        <!-- Button to go to next question -->
-        <form method="get" action="/quiz/{{category_currently}}">
-            <button type="submit" class="btn btn-primary" style="outline: 5px double silver; width: 250px;">Next Question</button>
-        </form>
     </main>
     <!--Quiz Compenant finaly block-->
 
+</body>
 
 
 
@@ -106,69 +118,5 @@
 
 
 
-<!-- Footer -->
-<footer class="page-footer  pt-4 fixed-bottom bg-dark" style="color:white;">
 
-    <!-- Footer Links -->
-    <div class="container-fluid text-center text-md-left">
 
-        <!-- Grid row -->
-        <div class="row">
-
-            <!-- Grid column -->
-            <div class="col-md-6 mt-md-0 mt-3">
-
-                <!-- Content -->
-                <h5 class="text-uppercase">{{user}}, you are playing! you are {{profile_user.level}} level.</h5>
-                <p>Currently, it's a question about {{category_currently}}.</p>
-
-            </div>
-            <!-- Grid column -->
-
-            <hr class="clearfix w-100 d-md-none pb-3">
-
-            <!-- Grid column -->
-            <div class="col-md-3 mb-md-0 mb-3">
-
-                <!-- Links -->
-                <h5 class="text-uppercase">TOTAL SCORE</h5>
-
-                <ul class="list-unstyled">
-                    <li>
-                        {{profile_user.total_score}}
-                    </li>
-
-                </ul>
-
-            </div>
-            <!-- Grid column -->
-
-            <!-- Grid column -->
-            <div class="col-md-3 mb-md-0 mb-3">
-
-                <!-- Links -->
-                <h5 class="text-uppercase">{{category_currently}} SCORE</h5>
-
-                <ul class="list-unstyled">
-                    <li>
-                        {% if category_currently == "microscopy" %}
-                        {{profile_user.microscopy_score}}
-                        {% endif %}
-                        {% if category_currently == "component" %}
-                        {{profile_user.component_score}}
-                        {% endif %}
-                    </li>
-
-                </ul>
-
-            </div>
-            <!-- Grid column -->
-
-        </div>
-        <!-- Grid row -->
-
-    </div>
-    <!-- Footer Links -->
-
-</footer>
-<!-- Footer -->

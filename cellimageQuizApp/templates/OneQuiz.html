@@ -20,8 +20,20 @@
             <img src="{% static 'cellimageQuizApp/img/core-img/image.png' %}" class="d-inline-block align-top" alt="">
         <a class="navbar-nav" href="#"></a>
     </nav>
+<div class="navbar">
+    <div class="container">
+        <h5 class="text-left"> &#127919 {{category_currently}} &#128300 <mark> Score Quiz</mark></h5>
+            <p>
+                {% if category_currently == "microscopy" %}
+                {{profile_user.microscopy_score}}
+                {% endif %}
+                {% if category_currently == "component" %}
+                {{profile_user.component_score}}
+                {% endif %}
+            </p>
+    </div>
+</div>
     <!---->
-
     <!--Quiz microscopy block-->
     <main class="container"><br>
 
@@ -51,77 +63,5 @@
     </main>
     <!--Quiz microscopy block-->
 
+</body>
 
-
-
-
-
-
-
-
-
-
-<!-- Footer -->
-<footer class="page-footer  pt-4 fixed-bottom bg-dark" style="color:white;">
-    <!-- Footer Links -->
-        <div class="container-fluid text-center text-md-left">
-
-            <!-- Grid row -->
-            <div class="row">
-
-                <!-- Grid column -->
-                <div class="col-md-6 mt-md-0 mt-3">
-
-                    <!-- Content -->
-                    <h5 class="text-uppercase">{{user}}, you are playing! you are {{profile_user.level}} level.</h5>
-                    <p>Currently, it's a question about {{category_currently}}.</p>
-
-                </div>
-                <!-- Grid column -->
-
-                <hr class="clearfix w-100 d-md-none pb-3">
-
-                <!-- Grid column -->
-                <div class="col-md-3 mb-md-0 mb-3">
-
-                    <!-- Links -->
-                    <h5 class="text-uppercase">TOTAL SCORE</h5>
-
-                    <ul class="list-unstyled">
-                        <li>
-                            {{profile_user.total_score}}
-                        </li>
-
-                    </ul>
-
-                </div>
-                <!-- Grid column -->
-
-                <!-- Grid column -->
-                <div class="col-md-3 mb-md-0 mb-3">
-
-                    <!-- Links -->
-                    <h5 class="text-uppercase">{{category_currently}} SCORE</h5>
-
-                    <ul class="list-unstyled">
-                        <li>
-                            {% if category_currently == "microscopy" %}
-                            {{profile_user.microscopy_score}}
-                            {% endif %}
-                            {% if category_currently == "component" %}
-                            {{profile_user.component_score}}
-                            {% endif %}
-                        </li>
-
-                    </ul>
-
-                </div>
-                <!-- Grid column -->
-
-            </div>
-            <!-- Grid row -->
-
-        </div>
-        <!-- Footer Links -->
-</footer>
-    <!-- Footer -->
