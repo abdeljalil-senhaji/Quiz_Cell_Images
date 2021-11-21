@@ -1,117 +1,45 @@
-{% load static %}
-
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="description" content="Biological Cell image Quiz ">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Title -->
-  <title>Biological Cell Image Quiz</title>
-
-  <!-- Favicon -->
-  <link rel="icon" href="{% static 'cellimageQuizApp/img/core-img/logo1.png' %}">
-
-  <!-- Core Stylesheet -->
-  <!-- CSS only -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <link rel="stylesheet" href="{% static 'cellimageQuizApp/css/style.css' %}">
-
-</head>
-
-<body>
-  <!-- Preloader -->
-  <div id="preloader">
-    <div class="preload-content">
-      <div id="dento-load"></div>
-    </div>
-  </div>
-
-  <!-- ***** Header Area Start ***** -->
-  <header class="header-area">
-    <!-- Top Header Area -->
-    <div class="top-header-area">
-      <div class="container h-100">
-        <div class="row h-100 align-items-center">
-          <!-- Top Content -->
-          <div class="col-6 col-md-9 col-lg-8">
-            <div class="top-header-content">
-              <a href="https://outlook.office.com/mail/inbox" data-toggle="tooltip" data-placement="bottom" title="abdeljalil.senhaji-rachik@etu.univ-amu.fr"><i class="fa fa-envelope"></i> <span>abdeljalil.senhaji-rachik@etu.univ-amu.fr</span></a>
-            </div>
-          </div>
-          <!-- Top Header Social Info -->
-          <div class="col-6 col-md-3 col-lg-4">
-            <div class="top-header-social-info text-right">
-              <a href="https://www.facebook.com/rachiksenhaji" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook"></i></a>
-              <a href="https://twitter.com/" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fa fa-twitter"></i></a>
-              <a href="https://mail.google.com/mail/u/0/#inbox" data-toggle="tooltip" data-placement="bottom" title="Google Plus"><i class="fa fa-google-plus"></i></a>
-              <a href="https://www.linkedin.com/in/abdeljalil-senhaji-rachik-173509181/" data-toggle="tooltip" data-placement="bottom" title="Linkedin"><i class="fa fa-linkedin"></i></a>
+      <!-- Single Welcome Slide -->
+      <div class="welcome-welcome-slide bg-img bg-gradient-overlay jarallax" style="background-image: url({% static 'images/11996.jpg' %});">
+        <div class="container h-100">
+          <div class="row h-100 align-items-center">
+            <div class="col-12">
+              <!-- Welcome Text -->
+              <div class="welcome-text text-center">
+                <h2 data-animation="fadeInDown" data-delay="100ms">Welcome {{ user }} to the world of microscopic images </h2>
+                <p data-animation="fadeInDown" data-delay="300ms">Total score: {{ profile_user.total_score }}<br>
+                        Component score: {{ profile_user.component_score }}<br>
+                        Microscopy score: {{ profile_user.microscopy_score }}<br></p>
+                <div class="welcome-btn-group">
+                  <a href="quiz/component" class="btn dento-btn mx-2" data-animation="fadeInDown" data-delay="500ms">Start The Quiz</a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <!-- Top Header End -->
 
-    <!-- Main Header Start -->
-    <div class="main-header-area">
-      <div class="classy-nav-container breakpoint-off">
-        <div class="container">
-          <!-- Classy Menu -->
-          <nav class="classy-navbar justify-content-between" id="dentoNav">
+<!----------------------------- A remetre dans le home --------------------------------->
+.container{
+border-top : 10px ;
+text-align: center;
+padding: 1em 0;
+}
+<!----------------------------- A remetre dans le home --------------------------------->
 
-            <!-- Logo -->
-            <a class="nav-brand" href="/"><img src="{% static 'cellimageQuizApp/img/core-img/image.png' %}" alt=""></a>
-
-            <!-- Navbar Toggler -->
-            <div class="classy-navbar-toggler">
-              <span class="navbarToggler"><span></span><span></span><span></span></span>
-            </div>
-
-            <!-- Menu -->
-            <div class="classy-menu">
-
-              <!-- Close Button -->
-              <div class="classycloseIcon">
-                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-              </div>
-
-              <!-- Nav Start -->
-              <div class="classynav">
-                <ul id="nav">
-                  <li><a href="/">Home</a></li>
-                  <li><a href="#">START THE QUIZ</a>
-                    <ul class="dropdown">
-                      <li><a href="quiz/microscopy/"> * Microscopy image</a></li>
-                      <li><a href="quiz/component"> * Component cell types</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="/exploreimages">Explore Page</a></li>
-                  <li><a href="/model_information">Information Quiz</a></li>
-                  <li><a href="/login">Log In</a></li>
-                  <li><a href="/sign_up">Sign UP</a></li>
-                  <li><a href="/logout">Log Out</a></li>
-                </ul>
-              </div>
-              <!-- Nav End -->
-            </div>
-          </nav>
-        </div>
-      </div>
-    </div>
-  </header>
-  <!-- ***** Header Area End ***** -->
+            # change level of gamer
+            if int(profile_currently.total_score) < 50:
+                profile_currently.level = "beginner"
+            if 50 <= int(profile_currently.total_score) < 100:
+                profile_currently.level = "medium"
+            elif int(profile_currently.total_score) >= 100:
+                profile_currently.level = "advanced"
+            profile_currently.save()
 
 
 
-  <!-- bloooooooock -->
-    <center>
-    {% block content %}
 
-    {% endblock %}
-    </center>
 
+<!----------------------------- A remetre dans le home --------------------------------->
   <!-- ****** About Us Area Start ******* -->
   <section class="dento-about-us-area section-padding-100-0">
     <div class="container">
@@ -274,7 +202,7 @@
               <!-- Single Service -->
               <div class="col-6 col-md-4">
                 <div class="single-service mb-70">
-                  <img src="{% static 'cellimageQuizApp/img/core-img/quiz.png' %}" alt="">
+                  <img src="{% static 'cellimageQuizApp/img/core-img/2222.png' %}" alt="">
                   <h6>Quiz of the microscope types and its cell components</h6>
                 </div>
               </div>
@@ -293,7 +221,7 @@
         <!-- Video Area -->
         <div class="col-12 col-lg-6">
           <div class="dento-video-area mb-100">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/kvXLgh6SxNY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="600" height="350" src="https://www.youtube.com/embed/B_zD3NxSsD8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
       </div>
@@ -422,42 +350,3 @@
   </div>
   </section>
   <!-- Book An Oppointment Area End -->
-
-
-<!-- ***** Footer ***** -->
-  <footer class=" mt-5 bg-img bg-gradient-overlay" style="background-image: url({% static 'images/39954.jpg' %});">
-    <div class="container">
-      <div class="row">
-        <!-- Single Footer Widget -->
-        <div class="col-12 text-center mt-5">
-          <div class="single-footer-widget">
-            <a href="/" class="d-block mb-4"><img src="{% static 'cellimageQuizApp/img/core-img/image.png' %}" alt=""></a>
-            <p>Welcome to CellImageQuiz : Increase your knowledge in biology.</p>
-            <div class="footer-contact">
-              <p><i class="icon_phone"></i> +336 24 28 03 91</p>
-              <p><i class="icon_mail"></i>abdeljalil.senhaji-rachik@etu.univ-amu.fr</p>
-            </div>
-            <div class="copywrite-content">
-              <p>Create By <strong> Abdeljalil </strong> | This images is made with <i aria-hidden="true"></i> by <a href="http://cellimagelibrary.org/home" target="_blank">Cell Image <a href="https://themeslab.org/" target="_blank"></a>Library</a></p>
-            </div>
-          </div>
-      </div>
-    </div>
-  </footer>
-<!-- ***** Footer  ***** -->
-
-  <!-- ******* All JavaScript ******* -->
-  <!-- jQuery js -->
-  <script src="{% static 'cellimageQuizApp/js/jquery.min.js' %}"></script>
-  <!-- Popper js -->
-  <script src="{% static 'cellimageQuizApp/js/popper.min.js' %}"></script>
-  <!-- Bootstrap js -->
-  <script src="{% static 'cellimageQuizApp/js/bootstrap.min.js' %}"></script>
-  <!-- All js -->
-  <script src="{% static 'cellimageQuizApp/js/dento.bundle.js' %}"></script>
-  <!-- Active js -->
-  <script src="{% static 'cellimageQuizApp/js/default-assets/active.js' %}"></script>
-
-</body>
-
-</html>

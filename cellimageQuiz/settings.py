@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import django_heroku
+import dj_database_url
+from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -34,14 +37,19 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
+    'django_tables2',
+    'dal_select2',
+    'django_filters',
+    'bootstrap4',
+    'dal',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'cellimageQuizApp',
-    'django_tables2',
-    'django_filters',
-    'bootstrap3',
+
 ]
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -51,6 +59,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'cellimageQuiz.urls'
@@ -124,7 +133,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ##########################
 #STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
@@ -142,3 +151,7 @@ EMAIL_HOST_USER = 'senhajirachikabdeljalil@gmail.com'
 EMAIL_HOST_PASSWORD = '***************'
 EMAIL_USE_TLS = False
 #EMAIL_USE_SSL = False
+
+
+
+django_heroku.settings(locals())

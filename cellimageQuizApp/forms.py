@@ -1,6 +1,7 @@
 from django import forms
 from .models import Answer, Image, Question
 import random
+from dal import autocomplete
 
 
 class FormAnswer(forms.ModelForm):  # formulaire des réponses
@@ -33,3 +34,16 @@ class FormAnswer(forms.ModelForm):  # formulaire des réponses
     def returnTrueAnswer(self):  # conserver la bonne réponse à cocher
         return self.trueAnswer
 
+
+#######################################################
+##### Edit Image DB directly in admin interface #######
+#######################################################
+
+
+class FormImage(forms.ModelForm):  # Use the view in a Form widget
+    class Meta:
+        model = Image
+        fields = '__all__'
+        widgets = {
+            'image_name': autocomplete.ListSelect2(url='images-autocomplete')
+        }

@@ -8,6 +8,34 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import Question, Answer, Image, Profile
 from django.shortcuts import redirect, render
 from .forms import FormAnswer
+from .models import Image
+# explore :
+from django_filters import FilterSet, ModelChoiceFilter
+import django_tables2 as tables
+from django_tables2.views import SingleTableMixin
+from django_filters.views import FilterView
+from dal import autocomplete
+
+
+############################## Edit Image DB directly in admin interface ##################
+
+
+class ImagesAutocomplete(autocomplete.Select2QuerySetView):
+    def get_queryset(self):
+        # Don't forget to filter out results depending on the visitor !
+        if not self.request.user.is_authenticated:
+            return Image.objects.none()
+        qs = Image.objects.all()
+
+        if self.q:
+            qs = qs.filter(name__istartswith=self.q)
+        return qs
+
+
+############## Information quiz ###########
+
+def information(request):
+    return render(request, "information.html")
 
 
 ##### create compte ######
@@ -39,9 +67,27 @@ def index(request):
 
 ######## Images explore  #########
 
-from django_tables2.views import SingleTableMixin
-from django_filters.views import FilterView
-from cellimageQuizApp.selection import ImageFilter, ImageTable
+from django_filters import FilterSet, ModelChoiceFilter
+import django_tables2 as tables
+
+
+
+class ImageFilter(FilterSet):
+    # autocompletion
+    image_name = ModelChoiceFilter(queryset=Image.objects.values_list('image_name', flat=True).distinct())
+    microscopy = ModelChoiceFilter(queryset=Image.objects.values_list('microscopy', flat=True).distinct())
+
+    class Meta:
+        model = Image
+        fields = ['id', 'image_name', 'description', 'microscopy', 'cell_type', 'component', 'doi', 'organism']
+
+
+class ImageTable(tables.Table):
+    class Meta:
+        model = Image
+
+    Image = tables.TemplateColumn(
+        '<a href="/static/images/{{ record.image_name }}.jpg"><img src="/static/images/{{ record.image_name }}.jpg" width="80" height="80"></a>')
 
 
 class FilteredImagesListView(SingleTableMixin, FilterView):
@@ -51,13 +97,7 @@ class FilteredImagesListView(SingleTableMixin, FilterView):
     filterset_class = ImageFilter
 
 
-############## Information quiz ###########
-
-def information(request):
-    return render(request, "information.html")
-
-
-############ Quiz 1 ################
+############################################ Quiz ################################################
 
 
 # getImages methode pour la filtration des images component et microscopy :
@@ -138,6 +178,8 @@ def playquizz(request, choiceCategory):
 
             id_trueAnswer = classTrueAnswer.getIDTrueAnswer()
 
+            ####################### calculate score ################################################################
+
             if id_trueAnswer == id_answer_submitted:  # User responde correctly
                 profile_currently.total_score += Question.objects.get(category=choiceCategory).points  # change field
                 profile_currently.save()  # this will update only
@@ -164,14 +206,7 @@ def playquizz(request, choiceCategory):
                     profile_currently.save()  # this will update only
                 user_answer = False
 
-            # change level of gamer
-            if int(profile_currently.total_score) < 50:
-                profile_currently.level = "beginner"
-            if 50 <= int(profile_currently.total_score) < 100:
-                profile_currently.level = "medium"
-            elif int(profile_currently.total_score) >= 100:
-                profile_currently.level = "advanced"
-            profile_currently.save()
+            ################################################################################################
 
             # New form for the following question
             form = FormAnswer(questionID=questionIDcurrent, number_answer=nb_answer)  # on fait d'abord le formulaire
@@ -180,17 +215,18 @@ def playquizz(request, choiceCategory):
 
             classTrueAnswer.setIDTrueAnswer(id_trueAnswer)
 
-            return render(request, "TwoQuiz.html",
-                          {"profile_user": Profile.objects.get(user_id=request.user.id),
-                           "questions": Question.objects.filter(category=choiceCategory, id=questionIDcurrent),
-                           "images": getImages(id_trueAnswer, choiceCategory),
-                           'form': form,
-                           'successful_submit': True,
-                           'user_answer': user_answer,
-                           'true_answer': Answer.objects.get(id=id_trueAnswer).answer,
-                           'otherCategories': choiceCategorySave,
-                           'category_currently': choiceCategory,
-                           'images_currently': images})
+            return render(request, "TwoQuiz.html", {"profile_user": Profile.objects.get(user_id=request.user.id),
+                                                    "questions": Question.objects.filter(category=choiceCategory,
+                                                                                         id=questionIDcurrent),
+                                                    "images": getImages(id_trueAnswer, choiceCategory), 'form': form,
+                                                    'successful_submit': True, 'user_answer': user_answer,
+                                                    'true_answer': Answer.objects.get(id=id_trueAnswer).answer,
+                                                    'answer_definition': Answer.objects.get(
+                                                        id=id_trueAnswer).definition,
+                                                    'otherCategories': choiceCategorySave,
+                                                    'category_currently': choiceCategory, 'images_currently': images})
+
+
     # pour la 1ère soumission:
     else:
         # 1ère formulaire
@@ -209,5 +245,6 @@ def playquizz(request, choiceCategory):
                        "images": images,
                        'form': form,
                        'true_answer': Answer.objects.get(id=id_trueAnswer).answer,
+                       'answer_definition': Answer.objects.get(id=id_trueAnswer).definition,
                        'otherCategories': choiceCategorySave,
                        'category_currently': choiceCategory})

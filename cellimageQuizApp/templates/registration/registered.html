@@ -13,28 +13,12 @@
             <div class="col-12">
               <!-- Welcome Text -->
               <div class="welcome-text text-center">
-                <h2 data-animation="fadeInUp" data-delay="100ms">Welcome <strong> {{ user }} </strong> to the world of microscopic images of cells and their organelles</h2>
-                <p data-animation="fadeInUp" data-delay="300ms">You want to develop your knowledge in biology. it's time to start a quiz.</p>
+                <h2 data-animation="fadeInUp" data-delay="100ms">Welcome <strong> {{ user }} </strong> to the world of microscopic images your score is : </h2>
+                <p data-animation="fadeInUp" data-delay="300ms">Total score: {{ profile_user.total_score }}<br>
+                  Component Cell Types score: {{ profile_user.component_score }}<br>
+                  Microscopy Images score: {{ profile_user.microscopy_score }}<br></p>
                 <div class="welcome-btn-group">
-                  <a href="quiz/microscopy/" class="btn dento-btn mx-2" data-animation="fadeInUp" data-delay="500ms">Start The Quiz</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Single Welcome Slide -->
-      <div class="welcome-welcome-slide bg-img bg-gradient-overlay jarallax" style="background-image: url({% static 'images/11996.jpg' %});">
-        <div class="container h-100">
-          <div class="row h-100 align-items-center">
-            <div class="col-12">
-              <!-- Welcome Text -->
-              <div class="welcome-text text-center">
-                <h2 data-animation="fadeInDown" data-delay="100ms">Welcome {{ user }} to the world of microscopic images </h2>
-                <p data-animation="fadeInDown" data-delay="300ms">You want to develop your knowledge in biology. it's time to start a quiz.</p>
-                <div class="welcome-btn-group">
-                  <a href="quiz/component" class="btn dento-btn mx-2" data-animation="fadeInDown" data-delay="500ms">Start The Quiz</a>
+                  <a href="quiz/microscopy/" class="btn dento-btn mx-2" data-animation="fadeInUp" data-delay="500ms">Keep on going</a>
                 </div>
               </div>
             </div>

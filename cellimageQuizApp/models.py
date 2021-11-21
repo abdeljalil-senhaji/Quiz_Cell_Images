@@ -13,6 +13,7 @@ class Image(models.Model):
     doi = models.CharField(max_length=255)
     organism = models.CharField(max_length=255)
 
+
 class Question(models.Model):
     question = models.CharField(max_length=255)
     category = models.CharField(max_length=255)
@@ -21,6 +22,7 @@ class Question(models.Model):
     n_answer = models.IntegerField()
     n_image = models.IntegerField()
     image = models.ForeignKey(Image, on_delete=models.CASCADE, null=True)
+
 
 class Answer(models.Model):
     question_id = models.IntegerField()
@@ -36,7 +38,8 @@ class Profile(models.Model):
     total_score = models.IntegerField(default=0)  # initialization
     component_score = models.IntegerField(default=0)
     microscopy_score = models.IntegerField(default=0)
-    level = models.CharField(max_length=50, default="beginner")
+
+    # level = models.CharField(max_length=50, default="beginner")
 
     def getScore(self):
         return total_score

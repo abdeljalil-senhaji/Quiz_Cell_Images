@@ -1372,7 +1372,7 @@ ul {
 .single-footer-widget {
   position: relative;
   z-index: 1;
-  margin-bottom: 100px; }
+}
   .single-footer-widget .widget-title {
     color: #ffffff;
     margin-top: 5px;

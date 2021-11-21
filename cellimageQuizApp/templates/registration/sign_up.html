@@ -22,33 +22,35 @@
             <img src="{% static 'cellimageQuizApp/img/core-img/image.png' %}" class="d-inline-block align-top" alt="">
         <a class="navbar-nav" href="#"></a>
     </nav>
-    <div class="d-flex justify-content-center ">
-        <form class="form-signin col-6">
-            <h2 class="mb-5 text-center">Please sign in</h2>
-            <form method="post" autocomplete="on" style="">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button class="btn btn-primary type=" submit ">Sign up</button>
-            </form>
-        </form>
-    </div>
-    <div class="row">
-    <!-- Section Heading -->
-    <div class="col-12">
-      <div class="section-heading text-center white">
-        <h2></h2>
-        <div></div>
+
+      <div class="d-flex justify-content-center mb-5 mt-5">
+
+          <form method="post" class="form-signin mb-5">
+              <h3 class="h2 mb-5 font-weight-normal text-center"> &#128300 <strong> Welcome back to Biological Cell Image Quiz &#128300 </strong> </h3>
+              <h3 class="h2 mb-5 font-weight-normal text-center"> <strong> Please sign in </strong> </h3>
+              {% csrf_token %}
+              {{ form.as_p }}
+              <div class="checkbox mb-2 ">
+                <label>
+                  <input type="checkbox" value="remember-me"> Remember me
+                </label>
+              </div>
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Sign up</button>
+          </form>
       </div>
-    </div>
-    </div>
     </body>
 
+
+
+
+
+
 <!-- ***** Footer ***** -->
-    <footer class=" mt-5 bg-img bg-gradient-overlay" style="background-image: url({% static 'images/39954.jpg' %});">
+  <footer class=" mt-5 bg-img bg-gradient-overlay" style="background-image: url({% static 'images/39954.jpg' %});">
     <div class="container">
       <div class="row">
         <!-- Single Footer Widget -->
-        <div class="col-12 text-center">
+        <div class="col-12 text-center mt-5">
           <div class="single-footer-widget">
             <a href="/" class="d-block mb-4"><img src="{% static 'cellimageQuizApp/img/core-img/image.png' %}" alt=""></a>
             <p>Welcome to CellImageQuiz : Increase your knowledge in biology.</p>
@@ -62,7 +64,7 @@
           </div>
       </div>
     </div>
-    </footer>
+  </footer>
 <!-- ***** Footer  ***** -->
 
       <!-- ******* All JavaScript ******* -->

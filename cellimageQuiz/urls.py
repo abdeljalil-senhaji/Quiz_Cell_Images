@@ -13,12 +13,15 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from dal import autocomplete
 from django.conf import settings
+from django.conf.urls import url
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import path
 from cellimageQuizApp.importdata import importData
+from cellimageQuizApp.models import Image, Answer, Question
 from cellimageQuizApp.views import index, sign_up, FilteredImagesListView, playquizz, information
 
 urlpatterns = [
@@ -32,5 +35,10 @@ urlpatterns = [
     path('exploreimages/', FilteredImagesListView.as_view()),
     path('quiz/<choiceCategory>/', playquizz),
     #path('quiz/microscopy', playquizz),
-    #path('quiz/component', playquizz)
+    #path('quiz/component', playquizz),
+    url(  # Register the autocomplete view
+          'images-autocomplete/$',
+          autocomplete.Select2QuerySetView.as_view(model=Image),
+          name='images-autocomplete',
+    ),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
