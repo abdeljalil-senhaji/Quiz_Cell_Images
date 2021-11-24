@@ -87,13 +87,30 @@ WSGI_APPLICATION = 'cellimageQuiz.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+"""
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'df0r9dh847ib26',
+        'HOST': 'ec2-100-24-227-178.compute-1.amazonaws.com',
+        'PORT': 5432,
+        'USER': 'sfnfpqobvozfyj',
+        'PASSWORD': 'e422ddce2a315585b2e30eec549c81cec8d9e16210335f7f9350978916d78616'
+    }
+}
+
+
+
+
+
 
 
 # Password validation
@@ -138,7 +155,6 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ##########################
 #STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
-#STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
@@ -151,7 +167,6 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'senhajirachikabdeljalil@gmail.com'
 EMAIL_HOST_PASSWORD = '***************'
 EMAIL_USE_TLS = False
-#EMAIL_USE_SSL = False
 
 
 

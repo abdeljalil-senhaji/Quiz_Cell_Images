@@ -1,13 +1,16 @@
 ![](images_README/logo.png)
-
+=============================================================================================
+Cell Image Quiz 
+=============================================================================================
 
 [![Documentation](https://img.shields.io/badge/Documentation-github-brightgreen.svg?style=for-the-badge)](https://github.com/abdeljalil-senhaji/Quiz_Cell_Images)
 
 
 # **Tutorial**
-Cell Image Quiz s a playful learning website, you will learn how to recognise microscopy features and components by answering quiz.
+
 
 ## Link to the web site:
+
 https://abdeljalil.herokuapp.com/
 
 
@@ -27,6 +30,7 @@ Download all the files in the directory `projet_django ` , go to console:
 
 - Create an environement:
 
+
 `conda create --name envdjango python=3.7`
 
 
@@ -42,6 +46,7 @@ Download all the files in the directory `projet_django ` , go to console:
 `conda install --name djangoenv sqlparse==0.4.1`
 
 file requeriement  :
+
 asgiref==3.4.1
 beautifulsoup4==4.10.0
 certifi==2021.10.8
