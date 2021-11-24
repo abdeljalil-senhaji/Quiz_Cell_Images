@@ -45,6 +45,16 @@ Download all the files in the directory `projet_django ` , go to console:
 
 `conda install --name djangoenv sqlparse==0.4.1`
 
+`conda install -c conda-forge django-tables2`
+
+`conda install -c conda-forge dal`
+
+`conda install -c conda-forge django-filter`
+
+`conda install -c conda-forge django-bootstrap4`
+
+
+
 file requeriement  :
 
 asgiref==3.4.1

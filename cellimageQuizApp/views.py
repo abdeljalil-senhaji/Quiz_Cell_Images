@@ -20,6 +20,8 @@ from dal import autocomplete
 ############################## Edit Image DB directly in admin interface ##################
 
 
+#Autocomplete :
+
 class ImagesAutocomplete(autocomplete.Select2QuerySetView):
     def get_queryset(self):
         # Don't forget to filter out results depending on the visitor !
@@ -66,6 +68,11 @@ def index(request):
 
 
 ######## Images explore  #########
+
+# Django-filter :
+# fournit un moyen simple de filtrer un ensemble de requêtes en fonction des paramètres fournis par l'utilisateur.
+
+# Django-table2 :Une application pour créer des tableaux HTML
 
 from django_filters import FilterSet, ModelChoiceFilter
 import django_tables2 as tables
