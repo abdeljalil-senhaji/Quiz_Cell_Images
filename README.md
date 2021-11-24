@@ -1,9 +1,14 @@
-# **Tutorial**
+![](images_README/logo.png)
 
-BioQ is a playful learning website, you will learn how to recognise microscopy features and components by answering quiz.
+
+[![Documentation](https://img.shields.io/badge/Documentation-github-brightgreen.svg?style=for-the-badge)](https://github.com/abdeljalil-senhaji/Quiz_Cell_Images)
+
+
+# **Tutorial**
+CellImageQuizi s a playful learning website, you will learn how to recognise microscopy features and components by answering quiz.
 
 ## Link to the web site:
-https://cryptic-plains-80674.herokuapp.com/BioQ/
+https://abdeljalil.herokuapp.com/
 
 
 ## Advantages of the application:
@@ -22,20 +27,43 @@ Download all the files in the directory `projet_django ` , go to console:
 
 - Create an environement:
 
-`conda create --name djangoenv python=3.7`
+`conda create --name envdjango python=3.7`
 
 
 `Activate conda enviroment`
 
 
-`conda activate djangoenv`
+`conda activate envdjango`
 
 - Install packages
 
-
 `conda install --name djangoenv django==3.0.3`
 
-`conda install --name djangoenv sqlparse==0.3.1`
+`conda install --name djangoenv sqlparse==0.4.1`
+
+file requeriement  :
+asgiref==3.4.1
+beautifulsoup4==4.10.0
+certifi==2021.10.8
+dj-database-url==0.5.0
+Django==3.0.3
+django-autocomplete-light==3.8.2
+django-bootstrap3==15.0.0
+django-bootstrap4==3.0.1
+django-filter==21.1
+django-heroku==0.3.1
+django-tables2==2.4.1
+gunicorn==20.0.4
+importlib-metadata==2.1.1
+psycopg2==2.8.2
+python-decouple==3.4
+pytz==2021.3
+six==1.16.0
+soupsieve==2.3
+sqlparse==0.4.1
+typing-extensions==3.10.0.2
+whitenoise==5.3.0
+zipp==3.6.0
 
 - Send to server:
 
@@ -44,21 +72,21 @@ Download all the files in the directory `projet_django ` , go to console:
 `python manage.py runserver`
 
 
-
-
-
 ### Home page
 
 The home page should look like this once you run the server.
 
-![Home page](Image/homePage.gif)
+
+![](images_README/home.png)
+
+![](images_README/home2.png)
 
 
 ## Registration 
 
-Click on the 'register' button to create an account.
+Click on the 'Sign Up' button to create an account.
 
-![registration page](Image/registration.gif)
+![](images_README/signup.png)
 
 
 ## login
@@ -67,13 +95,13 @@ Click on 'login' button to log in.
 Once you log in, you will be redirected to the following page:
 
 
-![login page](Image/login_logout.gif)
+![](images_README/login.png)
 
 
-You can select Quiz 1 or Quiz 2:
+You can select "START THE QUIZ:
 
 
-## Quiz 1
+## Microscopy Image
 
 If you pick Quiz 1 you will see 3 images and you will have to tell with
 which kind of microscopy the images were obtained. 
@@ -94,10 +122,10 @@ if you select the correct answer you obtain 1 point:
 if you give a bad answer, you do not obtain any point 
 
 
-![quiz1 page](Image/quizz1.gif)
+![](images_README/quizmicroscopy.png)
 
 
-## Quiz 2
+## Compenent Cell types
 
 If you pick Quiz 2 you will see  2 images and you will have to tell to which component they belong.
 
@@ -110,20 +138,13 @@ you have 4 possibilities to answer:
 
 
 
-
-
-
-
-
-if you select the correct answer you obtain 3 points:
-
-
+if you select the correct answer you obtain 1 points:
 
 
 
 if you give a bad answer, you do not obtain any point
 
-![quizz2 page](Image/quizz2.gif)
+![](images_README/compnantquiz.png)
 
 
 ## Explore:
@@ -131,5 +152,5 @@ if you give a bad answer, you do not obtain any point
 You have the possiility to explore data, search and sort each column.
 
 
-![explore page](Image/explore.gif)
+![](images_README/exploreimage.png)
 
