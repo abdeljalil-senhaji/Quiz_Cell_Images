@@ -5,7 +5,7 @@
 
 
 # **Tutorial**
-CellImageQuizi s a playful learning website, you will learn how to recognise microscopy features and components by answering quiz.
+Cell Image Quiz s a playful learning website, you will learn how to recognise microscopy features and components by answering quiz.
 
 ## Link to the web site:
 https://abdeljalil.herokuapp.com/
