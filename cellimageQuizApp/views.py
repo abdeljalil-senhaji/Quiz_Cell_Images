@@ -1,7 +1,6 @@
 # from django.shortcuts import render
 # Create your views here.
 
-from random import random
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm
 from .models import Question, Answer, Image, Profile
@@ -83,12 +82,12 @@ class FilteredImagesListView(SingleTableMixin, FilterView):
 
 
 # getImages methode pour la filtration des images component et microscopy :
-def getImages(id_trueAnswer, choiceCategory):
+def getImages(id_trueAnswer, TypeCategory):
     Good_Answer = Answer.objects.get(id=id_trueAnswer).answer
-    NbreImage = int(Question.objects.filter(category=choiceCategory).values()[0]["n_image"])
-    if choiceCategory == "component":
+    NbreImage = int(Question.objects.filter(category=TypeCategory).values()[0]["n_image"])
+    if TypeCategory == "component":
         return Image.objects.filter(component=Good_Answer).order_by('?')[0:NbreImage]
-    elif choiceCategory == "microscopy":
+    elif TypeCategory == "microscopy":
         return Image.objects.filter(microscopy=Good_Answer).order_by('?')[0:NbreImage]
 
 
@@ -110,10 +109,9 @@ class currentImages:
         return self.images
 classImages = currentImages()
 
-# la methode play quizz pour
-def playquizz(request, choiceCategory):
+def StartQuiz(request, TypeCategory):
     QuestionId = []
-    id_questions = Question.objects.filter(category=choiceCategory)
+    id_questions = Question.objects.filter(category=TypeCategory)
     for i in range(len(id_questions)):
         QuestionId.append(id_questions.values()[i]["id"])
     questionIDcurrent = QuestionId[0]
@@ -133,53 +131,53 @@ def playquizz(request, choiceCategory):
             classGoodAnswer.setIDTrueAnswer(id_trueAnswer)
             # ******************** si les données sont valider en calcule le score *******************#
             if id_trueAnswer == id_answer_submitted:  # reponse true
-                profile_currently.total_score += Question.objects.get(category=choiceCategory).points
+                profile_currently.total_score += Question.objects.get(category=TypeCategory).points
                 profile_currently.save()
-                if choiceCategory == "component":
-                    profile_currently.component_score += Question.objects.get(category=choiceCategory).points
+                if TypeCategory == "component":
+                    profile_currently.component_score += Question.objects.get(category=TypeCategory).points
                     profile_currently.save()
-                elif choiceCategory == "microscopy":
-                    profile_currently.microscopy_score += Question.objects.get(category=choiceCategory).points
+                elif TypeCategory == "microscopy":
+                    profile_currently.microscopy_score += Question.objects.get(category=TypeCategory).points
                     profile_currently.save()
                 user_answer = True
 
             else:  # reponse false
-                profile_currently.total_score -= Question.objects.get(category=choiceCategory).points
+                profile_currently.total_score -= Question.objects.get(category=TypeCategory).points
                 profile_currently.save()
-                if choiceCategory == "component":
-                    profile_currently.component_score -= Question.objects.get(category=choiceCategory).points
+                if TypeCategory == "component":
+                    profile_currently.component_score -= Question.objects.get(category=TypeCategory).points
                     profile_currently.save()
-                elif choiceCategory == "microscopy":
-                    profile_currently.microscopy_score -= Question.objects.get(category=choiceCategory).points
+                elif TypeCategory == "microscopy":
+                    profile_currently.microscopy_score -= Question.objects.get(category=TypeCategory).points
                     profile_currently.save()
                 user_answer = False
             form = form1(questionID=questionIDcurrent, number_answer=nmbAnswer)
             Good_Answer = form.returnTrueAnswer()
             id_trueAnswer = Answer.objects.get(answer=Good_Answer).id
             return render(request, "TwoQuiz.html", {"profile_user": Profile.objects.get(user_id=request.user.id),
-                                                    "questions": Question.objects.filter(category=choiceCategory,
+                                                    "questions": Question.objects.filter(category=TypeCategory,
                                                                                          id=questionIDcurrent),
-                                                    "images": getImages(id_trueAnswer, choiceCategory), 'form': form,
+                                                    "images": getImages(id_trueAnswer, TypeCategory), 'form': form,
                                                     'successful_submit': True, 'user_answer': user_answer,
                                                     'true_answer': Answer.objects.get(id=id_trueAnswer).answer,
                                                     'answer_definition': Answer.objects.get(
                                                         id=id_trueAnswer).definition,
-                                                    'categorycurrently': choiceCategory, 'images_currently': images})
+                                                    'categorycurrently': TypeCategory, 'images_currently': images})
     else:
         form = form1(questionID=questionIDcurrent, number_answer=nmbAnswer)
         Good_Answer = form.returnTrueAnswer()
         id_trueAnswer = Answer.objects.get(answer=Good_Answer).id
         classGoodAnswer.setIDTrueAnswer(id_trueAnswer)
-        images = getImages(id_trueAnswer, choiceCategory)
+        images = getImages(id_trueAnswer, TypeCategory)
         classImages.setImages(images)
         return render(request, "OneQuiz.html",
                       {"profile_user": Profile.objects.get(user_id=request.user.id),
-                       "questions": Question.objects.filter(category=choiceCategory, id=questionIDcurrent),
+                       "questions": Question.objects.filter(category=TypeCategory, id=questionIDcurrent),
                        "images": images,
                        'form': form,
                        'true_answer': Answer.objects.get(id=id_trueAnswer).answer,
                        'answer_definition': Answer.objects.get(id=id_trueAnswer).definition,
-                       'categorycurrently': choiceCategory})
+                       'categorycurrently': TypeCategory})
 
 
 # ***************  Autocomplete :*********************

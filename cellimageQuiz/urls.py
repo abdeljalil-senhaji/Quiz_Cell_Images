@@ -22,7 +22,7 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import path
 from cellimageQuizApp.importdata import importData
 from cellimageQuizApp.models import Image, Answer, Question
-from cellimageQuizApp.views import index, sign_up, FilteredImagesListView, playquizz, information
+from cellimageQuizApp.views import index, sign_up, FilteredImagesListView, StartQuiz, information
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -33,12 +33,6 @@ urlpatterns = [
     path('logout/', LogoutView.as_view()),
     path('model_information/', information),
     path('exploreimages/', FilteredImagesListView.as_view()),
-    path('quiz/<choiceCategory>/', playquizz),
-    #path('quiz/microscopy', playquizz),
-    #path('quiz/component', playquizz),
-    url(  # Register the autocomplete view
-          'images-autocomplete/$',
-          autocomplete.Select2QuerySetView.as_view(model=Image),
-          name='images-autocomplete',
-    ),
+    path('quiz/<TypeCategory>/', StartQuiz),
+    url('images-autocomplete/$',autocomplete.Select2QuerySetView.as_view(model=Image),name='images-autocomplete'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
