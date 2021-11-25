@@ -2,7 +2,6 @@
 
 # Create your views here.
 from random import random
-
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm
 from .models import Question, Answer, Image, Profile
@@ -17,10 +16,8 @@ from django_filters.views import FilterView
 from dal import autocomplete
 
 
-############################## Edit Image DB directly in admin interface ##################
 
-
-#Autocomplete :
+#***************  Autocomplete :*********************
 
 class ImagesAutocomplete(autocomplete.Select2QuerySetView):
     def get_queryset(self):
@@ -33,14 +30,13 @@ class ImagesAutocomplete(autocomplete.Select2QuerySetView):
             qs = qs.filter(name__istartswith=self.q)
         return qs
 
-
-############## Information quiz ###########
+#******************* Information quiz *********************#
 
 def information(request):
     return render(request, "information.html")
 
 
-##### create compte ######
+#*********************** create compte *************************#
 
 def sign_up(request):
     if request.method == 'POST':
@@ -57,7 +53,7 @@ def sign_up(request):
     return render(request, 'registration/sign_up.html', {'form': form})
 
 
-##### CONNECTED/DECONNECTED #####
+#*********** CONNECTED/DECONNECTED ************#
 
 def index(request):
     if request.user.is_authenticated:
@@ -67,7 +63,7 @@ def index(request):
         return render(request, "registration/unregistered.html")
 
 
-######## Images explore  #########
+#******************** Images explore  ********************#
 
 # Django-filter :
 # fournit un moyen simple de filtrer un ensemble de requêtes en fonction des paramètres fournis par l'utilisateur.
@@ -104,7 +100,7 @@ class FilteredImagesListView(SingleTableMixin, FilterView):
     filterset_class = ImageFilter
 
 
-############################################ Quiz ################################################
+#*************************** Quiz ******************************#
 
 
 # getImages methode pour la filtration des images component et microscopy :
