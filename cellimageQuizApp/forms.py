@@ -1,21 +1,20 @@
 from django import forms
-from .models import Answer, Image, Question
+from .models import Answer
 import random
-from dal import autocomplete
 
 
-class FormAnswer(forms.ModelForm):  # formulaire des réponses
+# formulaire des réponses pour la quiz
+
+# Create the form class.
+class form1(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         questionID = kwargs.pop('questionID')
         number_answer = kwargs.pop('number_answer')
-        super(FormAnswer, self).__init__(*args, **kwargs)
-
-        # tirer aléatoirement dans les réponses sachant que la question est déjà sélectionnée à partir du type de quizz
+        super(form1, self).__init__(*args, **kwargs)
         all_id_answers = list(Answer.objects.values_list('id', flat=True).filter(question_id=questionID))
         random_id = random.sample(all_id_answers, number_answer)
-        answers_for_form = Answer.objects.filter(id__in=random_id)  # id = [a list]
-
+        answers_for_form = Answer.objects.filter(id__in=random_id)
         self.trueAnswer = Answer.objects.get(id=random_id[0]).answer
         self.fields['answer'] = forms.ModelMultipleChoiceField(
             required=True,
@@ -31,19 +30,5 @@ class FormAnswer(forms.ModelForm):  # formulaire des réponses
             del self._errors['answer']
         return self
 
-    def returnTrueAnswer(self):  # conserver la bonne réponse à cocher
+    def returnTrueAnswer(self):
         return self.trueAnswer
-
-
-#######################################################
-##### Edit Image DB directly in admin interface #######
-#######################################################
-
-
-class FormImage(forms.ModelForm):  # Use the view in a Form widget
-    class Meta:
-        model = Image
-        fields = '__all__'
-        widgets = {
-            'image_name': autocomplete.ListSelect2(url='images-autocomplete')
-        }

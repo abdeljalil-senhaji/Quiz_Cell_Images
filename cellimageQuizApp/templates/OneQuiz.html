@@ -22,12 +22,12 @@
     </nav>
 <div class="navbar">
     <div class="container">
-        <h5 class="text-left"> &#127919 {{category_currently}} &#128300 <mark> Score Quiz</mark></h5>
+        <h5 class="text-left"> &#127919 {{categorycurrently}} &#128300 <mark> Score Quiz</mark></h5>
             <p>
-                {% if category_currently == "microscopy" %}
+                {% if categorycurrently == "microscopy" %}
                 {{profile_user.microscopy_score}}
                 {% endif %}
-                {% if category_currently == "component" %}
+                {% if categorycurrently == "component" %}
                 {{profile_user.component_score}}
                 {% endif %}
             </p>

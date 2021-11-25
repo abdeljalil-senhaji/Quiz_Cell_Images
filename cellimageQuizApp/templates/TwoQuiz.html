@@ -24,12 +24,12 @@
     </nav>
 <div class="navbar">
     <div class="container">
-        <h3 class="text-left"> &#127919 {{category_currently}} &#128300 <mark> Score Quiz</mark></h3>
+        <h3 class="text-left"> &#127919 {{categorycurrently}} &#128300 <mark> Score Quiz</mark></h3>
             <p>
-                {% if category_currently == "microscopy" %}
+                {% if categorycurrently == "microscopy" %}
                 {{profile_user.microscopy_score}}
                 {% endif %}
-                {% if category_currently == "component" %}
+                {% if categorycurrently == "component" %}
                 {{profile_user.component_score}}
                 {% endif %}
             </p>
@@ -67,12 +67,10 @@
                                 <p>{{ answer_definition }}</p>
                             </div>
                             <div class="modal-footer">
-                                <!-- {{ images_currently }} -->
                                 <form method="get" action="/exploreimages/?id={{ images_currently.id }}">
                                     <button type="submit" class="btn btn-secondary">More informations</button>
                                 </form>
-                                <!-- Button to go to next question -->
-                                <form method="get" action="/quiz/{{category_currently}}">
+                                <form method="get" action="/quiz/{{categorycurrently}}">
                                     <button type="submit" class="btn btn-primary">Next</button>
                                 </form>
                             </div>
@@ -92,11 +90,10 @@
                                 <p>{{ answer_definition }}</p>
                             </div>
                             <div class="modal-footer">
-                                <!-- {{ images_currently }} -->
                                 <form method="get" action="/exploreimages/?id={{ images_currently.id }}">
                                     <button type="submit" class="btn btn-secondary">More informations</button>
                                 </form>
-                                <form method="get" action="/quiz/{{category_currently}}">
+                                <form method="get" action="/quiz/{{categorycurrently}}">
                                     <button type="submit" class="btn btn-primary">Next</button>
                                 </form>
                             </div>

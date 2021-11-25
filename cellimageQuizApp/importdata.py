@@ -1,21 +1,22 @@
+# ************* Scrit pour le remplissage des données **************#
+
 import csv
 import os.path
-#from django.core.management.base import BaseCommand
+# from django.core.management.base import BaseCommand
 from django.http import HttpResponse
 from cellimageQuizApp.models import Question, Answer, Image
+
 
 # class Command(BaseCommand):
 
 def importData(request):
-    # CSV file path name and Read files
     my_path = os.path.abspath(os.path.dirname(__file__))
     path_Q = os.path.join(my_path, "./Data_app/table_questions.csv")
     path_A = os.path.join(my_path, "./Data_app/table_answers.csv")
     path_I = os.path.join(my_path, "./Data_app/table_images.csv")
-    # Read files :
     reader_Q = csv.reader(open(path_Q, encoding='utf-8'), delimiter='\t', quotechar='"')
-    next(reader_Q)  # Remove the first line (header)
-    for row in reader_Q:  # Parse files
+    next(reader_Q)
+    for row in reader_Q:
         question = Question()
         question.question = row[1]
         question.category = row[2]
@@ -44,4 +45,4 @@ def importData(request):
         image.doi = row[6]
         image.organism = row[7]
         image.save()
-    return HttpResponse("<p>All table is imported.</p>")
+    return HttpResponse("<h1>All data is imported.</h1>")

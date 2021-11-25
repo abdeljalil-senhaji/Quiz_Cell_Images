@@ -18,7 +18,6 @@ from decouple import config
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
@@ -28,9 +27,7 @@ SECRET_KEY = '%7)0x7j4dfn!p68=*wc6iqz(#%w08wn1jmh%e0h=87k6+ob&(8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -49,8 +46,6 @@ INSTALLED_APPS = [
     'cellimageQuizApp',
 
 ]
-
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -81,13 +76,12 @@ TEMPLATES = [
     },
 ]
 
-
 WSGI_APPLICATION = 'cellimageQuiz.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# *********** Database SQLite3 ************ #
 
 DATABASES = {
     'default': {
@@ -95,6 +89,10 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+# *********** Database Postgresql inclut dans heroku ************ #
+
+
 """
 
 DATABASES = {
@@ -127,7 +125,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
@@ -141,22 +138,18 @@ USE_L10N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.0/howto/static-files/
+# ************ static files ********* #
 
 STATIC_URL = '/static/'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-##########################
-#STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+# STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
-
-###### email contact SETTINGS ##################
+# ************* email contact SETTINGS **************** #
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
@@ -164,6 +157,6 @@ EMAIL_HOST_USER = 'senhajirachikabdeljalil@gmail.com'
 EMAIL_HOST_PASSWORD = '***************'
 EMAIL_USE_TLS = False
 
-
+# ********** deploement heroku ******** #
 
 django_heroku.settings(locals())

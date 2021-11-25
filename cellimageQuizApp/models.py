@@ -35,11 +35,10 @@ class Answer(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, unique=True, default=None)
-    total_score = models.IntegerField(default=0)  # initialization
+    total_score = models.IntegerField(default=0)
     component_score = models.IntegerField(default=0)
     microscopy_score = models.IntegerField(default=0)
 
-    # level = models.CharField(max_length=50, default="beginner")
 
     def getScore(self):
         return total_score
