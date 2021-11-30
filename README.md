@@ -5,7 +5,8 @@ Cell Image Quiz
 =============================================================================================
 
 [![Documentation](https://img.shields.io/badge/Documentation-github-brightgreen.svg?style=for-the-badge)](https://github.com/abdeljalil-senhaji/Quiz_Cell_Images)
-
+![](https://img.shields.io/conda/l/conda-forge/setuptools)
+![](https://img.shields.io/pypi/djversions/djangorestframework)
 
 ### Welcome to Cell Image Quiz : Increase your knowledge in biology.
 
