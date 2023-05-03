@@ -1,10 +1,9 @@
 
 ![](images_README/logo.png)
-[![DOI](https://zenodo.org/badge/419323859.svg)](https://zenodo.org/badge/latestdoi/419323859)
 =============================================================================================
 Cell Image Quiz 
 =============================================================================================
-
+[![DOI](https://zenodo.org/badge/419323859.svg)](https://zenodo.org/badge/latestdoi/419323859)
 [![Documentation](https://img.shields.io/badge/Documentation-github-brightgreen.svg?style=for-the-badge)](https://github.com/abdeljalil-senhaji/Quiz_Cell_Images)
 ![](https://img.shields.io/conda/l/conda-forge/setuptools)
 ![](https://img.shields.io/pypi/djversions/djangorestframework)
